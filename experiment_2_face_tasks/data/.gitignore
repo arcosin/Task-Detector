@@ -1,0 +1,6 @@
+celeba_small_test/1/*.jpg
+celeba_small_train/1/*.jpg
+celeba_small_valid/1/*.jpg
+mask/a/*.jpg
+models/*.pt
+outputs/*.jpg

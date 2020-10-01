@@ -1,0 +1,21 @@
+#!/bin/bash
+# FILENAME:  atari.sub
+
+module load cuda
+module load utilities monitor
+
+# track GPU load
+monitor gpu percent >gpu-percent.log &
+GPU_PID=$!
+
+# track CPU load
+monitor cpu percent >cpu-percent.log &
+CPU_PID=$!
+host=`hostname -s`
+echo $CUDA_VISIBLE_DEVICES
+
+# Run program
+python3 main.py
+
+# Stop monitoring
+kill -s INT $GPU_PID $CPU_PID
