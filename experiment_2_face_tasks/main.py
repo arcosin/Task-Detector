@@ -5,7 +5,7 @@ RANDOM_SEED = 13011
 # Python imports.
 import os
 import itertools
-from collections import namedtuple
+from collections import namedtuple, defaultdict
 
 # Randomness imports.
 import random
@@ -26,19 +26,23 @@ from torch.utils.data import DataLoader
 
 # Custom imports.
 from Doric import ProgNet
-from model_generator import VariationalAutoEncoderModelGenerator as FaceVAEGen
-from tasknet import TaskNet
+from task_detector import TaskDetector
+from autoencoder import AutoEncoder
 
 # Constants.
 TASKS = ["reconstruction", "denoise", "colorize", "inpaint"]
 USE_CPU = False
 BATCH_SIZE = 24
+TEST_BATCH_SIZE = 8
 TEST_N = BATCH_SIZE * 2
-EPOCHS = [0, 0, 0, 50]
+EPOCHS = {"reconstruction": 20, "denoise": 20, "colorize": 20, "inpaint": 20}
 LR = 0.001
 KL_WEIGHT = 0.00003
-Z_DIM = 128
+Z_DIM = 64
+NN_SIZE = (64, 64)
+H_DIM = 300
 
+TRAIN_ENABLED = True
 OUTPUT_DIR = "./data/outputs/"
 SAVE_DIR = "./data/models/"
 MASK_DIR = "./data/mask/"
@@ -48,6 +52,8 @@ DATA_DIR_TEST = "./data/celeba_small_test/"
 
 MASKS = DataLoader(ds.ImageFolder(MASK_DIR, ts.ToTensor()), batch_size = BATCH_SIZE, drop_last = True)
 MASK_CYCLE = itertools.cycle(MASKS)
+TEST_MASKS = DataLoader(ds.ImageFolder(MASK_DIR, ts.ToTensor()), batch_size = TEST_BATCH_SIZE, drop_last = True)
+TEST_MASK_CYCLE = itertools.cycle(TEST_MASKS)
 
 TRAIN_PRINT_AT = 14
 VALID_PRINT_AT = 1
@@ -55,16 +61,19 @@ TEST_PRINT_AT = 1
 
 DEVICE = torch.device("cpu" if USE_CPU or not torch.cuda.is_available() else "cuda:0")
 
-temp = None
-temp2 = None
-temp3 = None
+
+
+class DetGen:
+    def __init__(self):
+        super().__init__()
+
+    def generateDetector(self):
+        return AutoEncoder(NN_SIZE, H_DIM, Z_DIM).to(DEVICE)
 
 
 
-def transformInput(x, method):
-    global temp
-    global temp2
-    global temp3
+
+def transformInput(x, method, masks = MASK_CYCLE):
     if method == 'denoise':
         return x + torch.randn(*x.shape) * 0.1
     elif method == 'colorize':
@@ -72,34 +81,35 @@ def transformInput(x, method):
         img = torch.cat((img, img, img), dim = 1)
         return img
     elif method == 'inpaint':
-        mask, v = next(MASK_CYCLE)
-        temp = v
-        temp2 = mask
-        temp3 = x
+        mask, v = next(masks)
         return x * mask
     else:
         return x
 
-def saveTasknet(tasknet):
-    filename = "model_params.pt"
-    filepath = os.path.join(SAVE_DIR, filename)
-    torch.save(tasknet.prognet.state_dict(), filepath)
-    #tasknet.detector.saveAll()
 
-def trainHelper(model, modelGen, col, optimizer, x, task):
-    with torch.no_grad():
-        xOriginal = x.to(DEVICE)
-    x = transformInput(x, task).to(DEVICE)
-    xReconst = model(col, x)
-    reconstLoss = F.mse_loss(xReconst, xOriginal)
-    mu, var = modelGen.getLastVarBlock().getDistribution()
-    print(mu, var)
-    klDivergence = torch.mean(-0.5 * torch.sum(1 + var - mu ** 2 - var.exp(), dim = 1), dim = 0)
-    loss = reconstLoss + KL_WEIGHT * klDivergence
-    optimizer.zero_grad()
-    loss.backward()
-    optimizer.step()
-    return float(loss)
+def printCM(cm):
+    print("          Predicted:")
+    print("         ", end = '')
+    dotsLen = 0
+    for task in TASKS:
+        s = task + "   "
+        print(s, end = '')
+        dotsLen += len(s)
+    print()
+    print("         ", end = '')
+    for _ in range(dotsLen):
+        print('-', end = '')
+    print()
+    for taskNum in range(len(TASKS)):
+        print("Task " + str(taskNum) + ":  |", end = '')
+        for predNum in range(len(TASKS)):
+            print("{:8.3f}".format(cm[(TASKS[predNum], TASKS[taskNum])]), end = "   ")
+        print("|")
+    print("         ", end = '')
+    for _ in range(dotsLen):
+        print('-', end = '')
+    print()
+
 
 def getDataAndPreprocess():
     transform = ts.Compose([ts.RandomHorizontalFlip(), ts.CenterCrop(148), ts.Resize(64), ts.ToTensor()])
@@ -108,99 +118,78 @@ def getDataAndPreprocess():
     datasetValid = ds.ImageFolder(DATA_DIR_VALID, transform)
     dataLoaderValid = DataLoader(datasetValid, batch_size = BATCH_SIZE, drop_last = True)
     datasetTest = ds.ImageFolder(DATA_DIR_TEST, transform)
-    dataLoaderTest = DataLoader(datasetTest, batch_size = BATCH_SIZE, drop_last = True)
+    dataLoaderTest = DataLoader(datasetTest, batch_size = TEST_BATCH_SIZE, drop_last = True)
     return (dataLoaderTrain, dataLoaderValid, dataLoaderTest)
 
-def buildTaskNet():
-    prognetGen = FaceVAEGen(Z_DIM)
-    prognet = ProgNet(colGen = prognetGen)
-    tasknet = TaskNet(prognet, None, prognetGen)   #TODO: Add detector.
-    return tasknet
 
-def train(tasknet, trainDS, validDS):
-    print("Training and validation started.")
-    model = tasknet.prognet
-    modelGen = tasknet.prognetGen
-    detector = tasknet.detector
-    for k, task in enumerate(TASKS):
-        print("Task %d (%s) started." % (k, task))
-        model.freezeAllColumns()
-        col = model.addColumn(msg = task)
-        model = model.to(DEVICE)
-        optimizer = torch.optim.Adam(model.parameters(), lr = LR)
-        for epoch in range(EPOCHS[k]):
-            print("  Running epoch %d." % epoch)
-            print("    [", end = '', flush = True)
-            avgLoss = 0.0
-            for i, (x, _) in enumerate(trainDS):
-                loss = trainHelper(model, modelGen, col, optimizer, x, task)
-                avgLoss += loss
-                if i % TRAIN_PRINT_AT == 0:
-                    print("=", end = '', flush = True)
-            print("]")
-            print("    [", end = '', flush = True)
-            for i, (x, _) in enumerate(validDS):
-                with torch.no_grad():
-                    xOriginal = x.to(DEVICE)
-                    x = transformInput(x, task).to(DEVICE)
-                    xReconst = model(col, x)
-                    xConcat = torch.cat([xOriginal.cpu().data, x.cpu().data, xReconst.cpu().data], dim = 3)
-                    filename = "task-%s-epoch-%d-i-%d.png" % (task, epoch, i)
-                    filepath = os.path.join(OUTPUT_DIR, filename)
-                    save_image(xConcat, filepath)
-                    if i % VALID_PRINT_AT == 0:
-                        print("#", end = '', flush = True)
-            #torch.cuda.empty_cache()
-            print("]")
-            if task == "inpaint":
-                print("Safety save.")
-                saveTasknet(tasknet)
-            print("    Average training loss: %f." % avgLoss)
-    print("Training and validation done.")
 
-def test(tasknet, testDS):
-    print("Testing started.")
-    model = tasknet.prognet
-    modelGen = tasknet.prognetGen
-    detector = tasknet.detector
-    for k, task in enumerate(TASKS):
-        print("Task %d (%s) started." % (k, task))
-        col = task
-        model = model.to(DEVICE)
-        optimizer = torch.optim.Adam(model.parameters(), lr = LR)
+def buildDetector(saveDir):
+    gen = DetGen()
+    taskDetector = TaskDetector(gen, saveDir)
+    return taskDetector
+
+
+
+def train(detector, task, trainDS):
+    print("Training started on task %s." % task)
+    for epoch in range(EPOCHS[task]):
+        print("  Running epoch %d." % epoch)
         print("    [", end = '', flush = True)
-        for i, (x, _) in enumerate(testDS):
-            with torch.no_grad():
-                xOriginal = x.to(DEVICE)
-                x = transformInput(x, task).to(DEVICE)
-                xReconst = model(col, x)
-                xConcat = torch.cat([xOriginal.cpu().data, x.cpu().data, xReconst.cpu().data], dim = 3)
-                filename = "task-%s-i-%d.png" % (task, i)
-                filepath = os.path.join(OUTPUT_DIR, filename)
-                save_image(xConcat, filepath)
-                if i % TEST_PRINT_AT == 0:
-                    print("*", end = '', flush = True)
-            torch.cuda.empty_cache()
-            print("]")
-    print("Testing done.")
+        avgLoss = 0.0
+        for i, (x, _) in enumerate(trainDS):
+            x = transformInput(x, task).to(DEVICE)
+            _, loss = detector.trainStep(x, task)
+            avgLoss += loss
+            if i % TRAIN_PRINT_AT == 0:
+                print("=", end = '', flush = True)
+        print("]")
+    detector.expelDetector(task)
+    print("Training finished on task %s." % task)
+
+
+
+def test(detector, task, testDS, cm = None, cmn = None):
+    if cm is None:
+        cm = defaultdict(lambda: 0.0)
+    if cmn is None:
+        cmn = defaultdict(lambda: 0.0)
+    print("Testing started on task %s." % task)
+    for i, (x, _) in enumerate(testDS):
+        x = transformInput(x, task, TEST_MASK_CYCLE).to(DEVICE)
+        predTask, predTaskNormalized = detector.detect(x)
+        cm[(predTask, task)] += 1
+        cmn[(predTaskNormalized, task)] += 1
+        print("Env: {}  Image: {}/{}  Pred: {}  Correct: {}".format(task, i, len(testDS), predTask, (predTask == task)))
+    print("Testing finished on task %s." % task)
+    return (cm, cmn)
+
+
 
 
 
 
 def main():
-    print("Using device:  %s." % str(DEVICE))
-    print("Data sources:  %s & %s & %s." % (DATA_DIR_TRAIN, DATA_DIR_VALID, DATA_DIR_TEST))
-    trainData, validData, testData = getDataAndPreprocess()
-    print("Training dataset size:    %d." % len(trainData.dataset))
-    print("Validation dataset size:  %d." % len(validData.dataset))
-    print("Testing dataset size:     %d." % len(testData.dataset))
-    tasknet = buildTaskNet()
-    saveTasknet(tasknet)
-    train(tasknet, trainData, validData)
-    saveTasknet(tasknet)
-    test(tasknet, testData)
+    dataTrain, dataValid, dataTest = getDataAndPreprocess()
+    detector = buildDetector(SAVE_DIR)
+    cm = defaultdict(lambda: 0.0)
+    cmn = defaultdict(lambda: 0.0)
+    for task in TASKS:
+        detector.addTask(task)
+        if TRAIN_ENABLED:
+            train(detector, task, dataTrain)
+            detector.saveDetector(task)
+        else:
+            detector.rebuildDetector(task)
+    for task in TASKS:
+        cm, cmn = test(detector, task, dataTest, cm = cm, cmn = cmn)
+    print("Testing batch size: %s." % TEST_BATCH_SIZE)
+    print("\n\n")
+    print("Confusion matrix.")
+    printCM(cm)
+    print("\n\n")
+    print("Confusion matrix with normalize.")
+    printCM(cmn)
     print("Done.")
-
 
 
 

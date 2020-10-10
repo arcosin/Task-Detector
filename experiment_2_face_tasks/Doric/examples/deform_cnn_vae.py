@@ -17,20 +17,23 @@ sys.path.append("../..")
 from Doric import ProgNet, ProgColumn, ProgColumnGenerator
 from Doric import ProgDenseBlock, ProgLambdaBlock, ProgInertBlock, ProgDeformConv2DBlock, ProgDeformConv2DBNBlock, ProgConvTranspose2DBNBlock
 
-parser = argparse.ArgumentParser()
-parser.add_argument("--cpu", help="Specify whether the CPU should be used", type=bool, nargs='?', const=True, default=False)
-parser.add_argument("--output", help="Specify where to log the output to", type=str, default="output")
-parser.add_argument("--batch_size", help="Batch size", type=int, default=100)
-parser.add_argument("--epochs", help="Epochs", type=int, default=50)
-parser.add_argument("--lr", help="Epochs", type=float, default=0.0005)
-args = parser.parse_args()
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--cpu", help="Specify whether the CPU should be used", type=bool, nargs='?', const=True, default=False)
+    parser.add_argument("--output", help="Specify where to log the output to", type=str, default="output")
+    parser.add_argument("--batch_size", help="Batch size", type=int, default=100)
+    parser.add_argument("--epochs", help="Epochs", type=int, default=50)
+    parser.add_argument("--lr", help="Epochs", type=float, default=0.0005)
+    args = parser.parse_args()
+else:
+    args = None
 
 z_dim = 128
 
 MODEL_SAVE_PATH = 'model'
 
 writer = SummaryWriter()
-device = torch.device('cpu' if args.cpu or not torch.cuda.is_available() else 'cuda:0')
+
 
 # global variables to store the mean and variance
 g_mu = None
@@ -39,6 +42,8 @@ g_var = None
 mask_dataset = None
 mask_loader = None
 mask_loader_iter = None
+
+
 
 """
     Function called in train method to transform the input batch
@@ -56,12 +61,16 @@ def transform_input(x, method):
     else:
         return x
 
+
+
 def reparamaterize(x):
     mu, log_var = x
 
     std = torch.exp(0.5 * log_var)
     eps = torch.randn_like(std)
     return eps * std + mu
+
+
 
 class ProgVariationalBlock(ProgInertBlock):
     def __init__(self, inSize, outSize, numLaterals, activation = nn.ReLU()):
@@ -101,6 +110,8 @@ class ProgVariationalBlock(ProgInertBlock):
     def getShape(self):
         return (self.inSize, self.outSize)
 
+
+
 class VariationalAutoEncoderModelGenerator(ProgColumnGenerator):
     def __init__(self):
         self.ids = 0
@@ -127,13 +138,15 @@ class VariationalAutoEncoderModelGenerator(ProgColumnGenerator):
         cols.append(ProgConvTranspose2DBNBlock(64, 32, 3, len(parentCols), activation=nn.LeakyReLU(), layerArgs={'stride': 2, 'padding': 1, 'output_padding': 1}))
         cols.append(ProgConvTranspose2DBNBlock(32, 32, 3, len(parentCols), activation=nn.LeakyReLU(), layerArgs={'stride': 2, 'padding': 1, 'output_padding': 1}))
         cols.append(ProgDeformConv2DBlock(32, 3, 3, len(parentCols), activation=nn.Tanh(), layerArgs={'padding': 1}))
-        
+
         return ProgColumn(self.__genID(), cols, parentCols = parentCols)
 
     def __genID(self):
         id = self.ids
         self.ids += 1
         return id
+
+
 
 def train(model, batch_size, epochs, device, transform_method='none', skip_training=False, kl_weight=3e-5):
     global g_mu
@@ -162,7 +175,7 @@ def train(model, batch_size, epochs, device, transform_method='none', skip_train
                 x_original = x.to(device)
             # Apply any transformation specified
             x = transform_input(x, transform_method)
-            
+
             x = x.to(device)
 
             # Forward
@@ -182,9 +195,9 @@ def train(model, batch_size, epochs, device, transform_method='none', skip_train
             loss.backward()
 
             optimizer.step()
-            
+
             if (i+1) % 10 == 0:
-                print ("Col: {}, Epoch[{}/{}], Step [{}/{}], Reconst Loss: {:.4f}, KL Div: {:.4f}, Loss: {:.4f}" 
+                print ("Col: {}, Epoch[{}/{}], Step [{}/{}], Reconst Loss: {:.4f}, KL Div: {:.4f}, Loss: {:.4f}"
                     .format(col, epoch+1, epochs, i+1, len(data_loader), reconst_loss.item(), kl_div.item(), loss.item()))
 
                 # Tensorboard logging
@@ -192,7 +205,7 @@ def train(model, batch_size, epochs, device, transform_method='none', skip_train
                 writer.add_scalar('Column {} Train/Reconst Loss'.format(col), reconst_loss.item(), niter)
                 writer.add_scalar('Column {} Train/KL Div'.format(col), kl_div.item(), niter)
                 writer.add_scalar('Column {} Train/Loss'.format(col), loss.item(), niter)
-        
+
         with torch.no_grad():
             # Save the model output of the last batch as [original, augmented input, output]
             x_concat = torch.cat([x_original.cpu().data, x.cpu().data, x_reconst.cpu().data], dim=3)
@@ -204,12 +217,18 @@ def train(model, batch_size, epochs, device, transform_method='none', skip_train
     data_loader = None
     return col
 
+
+
 def forward(model, col, x):
-    # TODO: Implement
     out = model(col, x)
     save_image(x, 'out.jpg')
 
-if __name__ == "__main__":
+
+
+def main(args = args):
+    if args is None:
+        raise ValueError("args var is not defined.")
+    device = torch.device('cpu' if args.cpu or not torch.cuda.is_available() else 'cuda:0')
     #model.load_state_dict(torch.load('model-3.pt'))
     model = ProgNet(colGen=VariationalAutoEncoderModelGenerator())
 
@@ -227,3 +246,8 @@ if __name__ == "__main__":
     #Col 4
     mask_loader_iter = itertools.cycle(mask_loader)
     train(model, args.batch_size, args.epochs, device, transform_method='inpaint', kl_weight=3e-6)
+
+
+
+if __name__ == "__main__":
+    main()
