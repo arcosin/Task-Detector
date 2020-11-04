@@ -1,9 +1,16 @@
 
 # Imports.
 import argparse
+import os
 
+os.chdir("./experiment_1_atari/")
 from experiment_1_atari.main import main as atariMain
+os.chdir("..")
+
+os.chdir("./experiment_2_face_tasks/")
 from experiment_2_face_tasks.main import main as faceMain
+os.chdir("..")
+
 from experiment_2_face_tasks.Doric.examples.deform_cnn_vae import main as progMain
 
 
@@ -21,10 +28,14 @@ DESCRIP_STR = ""
 
 
 
-def main(args):
-    if args.command == "atari_tasknet":
+def main(parser, args):
+    if args.command is None:
+        parser.print_help()
+    elif args.command == "atari_tasknet":
+        os.chdir("./experiment_1_atari/")
         atariMain()
     elif args.command == "face_tasknet":
+        os.chdir("./experiment_2_face_tasks/")
         faceMain()
     elif args.command == "face_prognet":
         progMain(args)
@@ -57,6 +68,6 @@ def buildCLIParser():
 if __name__ == '__main__':
     parser = buildCLIParser()
     args = parser.parse_args()
-    main(args)
+    main(parser, args)
 
 #===============================================================================

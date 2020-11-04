@@ -1,0 +1,235 @@
+Training started on task reconstruction.
+  Running epoch 0.
+    [==========================================================================================]
+  Running epoch 1.
+    [==========================================================================================]
+  Running epoch 2.
+    [==========================================================================================]
+  Running epoch 3.
+    [==========================================================================================]
+  Running epoch 4.
+    [==========================================================================================]
+Saving detector reconstruction.
+Training finished on task reconstruction.
+Training started on task denoise.
+  Running epoch 0.
+    [==========================================================================================]
+  Running epoch 1.
+    [==========================================================================================]
+  Running epoch 2.
+    [==========================================================================================]
+  Running epoch 3.
+    [==========================================================================================]
+  Running epoch 4.
+    [==========================================================================================]
+Saving detector denoise.
+Training finished on task denoise.
+Training started on task colorize.
+  Running epoch 0.
+    [==========================================================================================]
+  Running epoch 1.
+    [==========================================================================================]
+  Running epoch 2.
+    [==========================================================================================]
+  Running epoch 3.
+    [==========================================================================================]
+  Running epoch 4.
+    [==========================================================================================]
+Saving detector colorize.
+Training finished on task colorize.
+Training started on task inpaint.
+  Running epoch 0.
+    [==========================================================================================]
+  Running epoch 1.
+    [==========================================================================================]
+  Running epoch 2.
+    [==========================================================================================]
+  Running epoch 3.
+    [==========================================================================================]
+  Running epoch 4.
+    [==========================================================================================]
+Saving detector inpaint.
+Training finished on task inpaint.
+Testing started on task reconstruction.
+Rebuilding detector reconstruction.
+Rebuilding detector denoise.
+Rebuilding detector colorize.
+Rebuilding detector inpaint.
+Env: reconstruction  Image: 0/37  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 1/37  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 2/37  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 3/37  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 4/37  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 5/37  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 6/37  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 7/37  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 8/37  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 9/37  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 10/37  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 11/37  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 12/37  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 13/37  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 14/37  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 15/37  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 16/37  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 17/37  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 18/37  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 19/37  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 20/37  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 21/37  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 22/37  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 23/37  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 24/37  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 25/37  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 26/37  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 27/37  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 28/37  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 29/37  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 30/37  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 31/37  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 32/37  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 33/37  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 34/37  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 35/37  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 36/37  Pred: reconstruction  Correct: True
+Testing finished on task reconstruction.
+Testing started on task denoise.
+Env: denoise  Image: 0/37  Pred: denoise  Correct: True
+Env: denoise  Image: 1/37  Pred: denoise  Correct: True
+Env: denoise  Image: 2/37  Pred: denoise  Correct: True
+Env: denoise  Image: 3/37  Pred: denoise  Correct: True
+Env: denoise  Image: 4/37  Pred: denoise  Correct: True
+Env: denoise  Image: 5/37  Pred: denoise  Correct: True
+Env: denoise  Image: 6/37  Pred: denoise  Correct: True
+Env: denoise  Image: 7/37  Pred: denoise  Correct: True
+Env: denoise  Image: 8/37  Pred: denoise  Correct: True
+Env: denoise  Image: 9/37  Pred: denoise  Correct: True
+Env: denoise  Image: 10/37  Pred: denoise  Correct: True
+Env: denoise  Image: 11/37  Pred: denoise  Correct: True
+Env: denoise  Image: 12/37  Pred: denoise  Correct: True
+Env: denoise  Image: 13/37  Pred: denoise  Correct: True
+Env: denoise  Image: 14/37  Pred: denoise  Correct: True
+Env: denoise  Image: 15/37  Pred: denoise  Correct: True
+Env: denoise  Image: 16/37  Pred: denoise  Correct: True
+Env: denoise  Image: 17/37  Pred: denoise  Correct: True
+Env: denoise  Image: 18/37  Pred: denoise  Correct: True
+Env: denoise  Image: 19/37  Pred: denoise  Correct: True
+Env: denoise  Image: 20/37  Pred: denoise  Correct: True
+Env: denoise  Image: 21/37  Pred: denoise  Correct: True
+Env: denoise  Image: 22/37  Pred: denoise  Correct: True
+Env: denoise  Image: 23/37  Pred: denoise  Correct: True
+Env: denoise  Image: 24/37  Pred: denoise  Correct: True
+Env: denoise  Image: 25/37  Pred: denoise  Correct: True
+Env: denoise  Image: 26/37  Pred: denoise  Correct: True
+Env: denoise  Image: 27/37  Pred: denoise  Correct: True
+Env: denoise  Image: 28/37  Pred: denoise  Correct: True
+Env: denoise  Image: 29/37  Pred: denoise  Correct: True
+Env: denoise  Image: 30/37  Pred: denoise  Correct: True
+Env: denoise  Image: 31/37  Pred: denoise  Correct: True
+Env: denoise  Image: 32/37  Pred: denoise  Correct: True
+Env: denoise  Image: 33/37  Pred: denoise  Correct: True
+Env: denoise  Image: 34/37  Pred: denoise  Correct: True
+Env: denoise  Image: 35/37  Pred: denoise  Correct: True
+Env: denoise  Image: 36/37  Pred: denoise  Correct: True
+Testing finished on task denoise.
+Testing started on task colorize.
+Env: colorize  Image: 0/37  Pred: colorize  Correct: True
+Env: colorize  Image: 1/37  Pred: colorize  Correct: True
+Env: colorize  Image: 2/37  Pred: colorize  Correct: True
+Env: colorize  Image: 3/37  Pred: colorize  Correct: True
+Env: colorize  Image: 4/37  Pred: colorize  Correct: True
+Env: colorize  Image: 5/37  Pred: colorize  Correct: True
+Env: colorize  Image: 6/37  Pred: colorize  Correct: True
+Env: colorize  Image: 7/37  Pred: colorize  Correct: True
+Env: colorize  Image: 8/37  Pred: colorize  Correct: True
+Env: colorize  Image: 9/37  Pred: colorize  Correct: True
+Env: colorize  Image: 10/37  Pred: colorize  Correct: True
+Env: colorize  Image: 11/37  Pred: colorize  Correct: True
+Env: colorize  Image: 12/37  Pred: colorize  Correct: True
+Env: colorize  Image: 13/37  Pred: colorize  Correct: True
+Env: colorize  Image: 14/37  Pred: colorize  Correct: True
+Env: colorize  Image: 15/37  Pred: colorize  Correct: True
+Env: colorize  Image: 16/37  Pred: colorize  Correct: True
+Env: colorize  Image: 17/37  Pred: colorize  Correct: True
+Env: colorize  Image: 18/37  Pred: colorize  Correct: True
+Env: colorize  Image: 19/37  Pred: colorize  Correct: True
+Env: colorize  Image: 20/37  Pred: colorize  Correct: True
+Env: colorize  Image: 21/37  Pred: colorize  Correct: True
+Env: colorize  Image: 22/37  Pred: colorize  Correct: True
+Env: colorize  Image: 23/37  Pred: colorize  Correct: True
+Env: colorize  Image: 24/37  Pred: colorize  Correct: True
+Env: colorize  Image: 25/37  Pred: colorize  Correct: True
+Env: colorize  Image: 26/37  Pred: colorize  Correct: True
+Env: colorize  Image: 27/37  Pred: colorize  Correct: True
+Env: colorize  Image: 28/37  Pred: colorize  Correct: True
+Env: colorize  Image: 29/37  Pred: colorize  Correct: True
+Env: colorize  Image: 30/37  Pred: colorize  Correct: True
+Env: colorize  Image: 31/37  Pred: colorize  Correct: True
+Env: colorize  Image: 32/37  Pred: colorize  Correct: True
+Env: colorize  Image: 33/37  Pred: colorize  Correct: True
+Env: colorize  Image: 34/37  Pred: colorize  Correct: True
+Env: colorize  Image: 35/37  Pred: colorize  Correct: True
+Env: colorize  Image: 36/37  Pred: colorize  Correct: True
+Testing finished on task colorize.
+Testing started on task inpaint.
+Env: inpaint  Image: 0/37  Pred: inpaint  Correct: True
+Env: inpaint  Image: 1/37  Pred: inpaint  Correct: True
+Env: inpaint  Image: 2/37  Pred: inpaint  Correct: True
+Env: inpaint  Image: 3/37  Pred: inpaint  Correct: True
+Env: inpaint  Image: 4/37  Pred: inpaint  Correct: True
+Env: inpaint  Image: 5/37  Pred: inpaint  Correct: True
+Env: inpaint  Image: 6/37  Pred: inpaint  Correct: True
+Env: inpaint  Image: 7/37  Pred: inpaint  Correct: True
+Env: inpaint  Image: 8/37  Pred: inpaint  Correct: True
+Env: inpaint  Image: 9/37  Pred: inpaint  Correct: True
+Env: inpaint  Image: 10/37  Pred: inpaint  Correct: True
+Env: inpaint  Image: 11/37  Pred: inpaint  Correct: True
+Env: inpaint  Image: 12/37  Pred: inpaint  Correct: True
+Env: inpaint  Image: 13/37  Pred: inpaint  Correct: True
+Env: inpaint  Image: 14/37  Pred: inpaint  Correct: True
+Env: inpaint  Image: 15/37  Pred: inpaint  Correct: True
+Env: inpaint  Image: 16/37  Pred: inpaint  Correct: True
+Env: inpaint  Image: 17/37  Pred: inpaint  Correct: True
+Env: inpaint  Image: 18/37  Pred: inpaint  Correct: True
+Env: inpaint  Image: 19/37  Pred: inpaint  Correct: True
+Env: inpaint  Image: 20/37  Pred: inpaint  Correct: True
+Env: inpaint  Image: 21/37  Pred: inpaint  Correct: True
+Env: inpaint  Image: 22/37  Pred: inpaint  Correct: True
+Env: inpaint  Image: 23/37  Pred: inpaint  Correct: True
+Env: inpaint  Image: 24/37  Pred: inpaint  Correct: True
+Env: inpaint  Image: 25/37  Pred: inpaint  Correct: True
+Env: inpaint  Image: 26/37  Pred: inpaint  Correct: True
+Env: inpaint  Image: 27/37  Pred: inpaint  Correct: True
+Env: inpaint  Image: 28/37  Pred: inpaint  Correct: True
+Env: inpaint  Image: 29/37  Pred: inpaint  Correct: True
+Env: inpaint  Image: 30/37  Pred: inpaint  Correct: True
+Env: inpaint  Image: 31/37  Pred: inpaint  Correct: True
+Env: inpaint  Image: 32/37  Pred: inpaint  Correct: True
+Env: inpaint  Image: 33/37  Pred: inpaint  Correct: True
+Env: inpaint  Image: 34/37  Pred: inpaint  Correct: True
+Env: inpaint  Image: 35/37  Pred: inpaint  Correct: True
+Env: inpaint  Image: 36/37  Pred: inpaint  Correct: True
+Testing finished on task inpaint.
+
+
+
+          Predicted:
+         reconstruction   denoise   colorize   inpaint   
+         ------------------------------------------------
+Task 0:  |  37.000    0.000    0.000    0.000 |
+Task 1:  |   0.000   37.000    0.000    0.000 |
+Task 2:  |   0.000    0.000   37.000    0.000 |
+Task 3:  |   0.000    0.000    0.000   37.000 |
+         ------------------------------------------------
+
+
+
+          Predicted:
+         reconstruction   denoise   colorize   inpaint   
+         ------------------------------------------------
+Task 0:  |  37.000    0.000    0.000    0.000 |
+Task 1:  |   0.000   37.000    0.000    0.000 |
+Task 2:  |   0.000    0.000   37.000    0.000 |
+Task 3:  |   0.000    0.000    0.000   37.000 |
+         ------------------------------------------------
+Done.

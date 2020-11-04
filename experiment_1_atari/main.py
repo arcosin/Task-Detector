@@ -2,11 +2,10 @@
 
 
 from collections import defaultdict
-from multienv import MultiEnv
-from random_agent import RandomAgent
-from task_detector import TaskDetector
-
-from task_detector import AnomalyDetectorGenerator
+from .multienv import MultiEnv
+from .random_agent import RandomAgent
+from .task_detector import TaskDetector
+from .task_detector import AnomalyDetectorGenerator
 
 import torch
 import torchvision.transforms as transforms

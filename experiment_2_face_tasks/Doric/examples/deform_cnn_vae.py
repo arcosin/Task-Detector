@@ -14,8 +14,8 @@ from torch.utils import data
 
 sys.path.append("../..")
 
-from Doric import ProgNet, ProgColumn, ProgColumnGenerator
-from Doric import ProgDenseBlock, ProgLambdaBlock, ProgInertBlock, ProgDeformConv2DBlock, ProgDeformConv2DBNBlock, ProgConvTranspose2DBNBlock
+from ...Doric import ProgNet, ProgColumn, ProgColumnGenerator
+from ...Doric import ProgDenseBlock, ProgLambdaBlock, ProgInertBlock, ProgDeformConv2DBlock, ProgDeformConv2DBNBlock, ProgConvTranspose2DBNBlock
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

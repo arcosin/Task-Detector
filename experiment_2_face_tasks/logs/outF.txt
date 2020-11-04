@@ -1,0 +1,1458 @@
+Training started on task reconstruction.
+  Running epoch 0.
+    [==========================================================================================]
+  Running epoch 1.
+    [==========================================================================================]
+  Running epoch 2.
+    [==========================================================================================]
+  Running epoch 3.
+    [==========================================================================================]
+  Running epoch 4.
+    [==========================================================================================]
+  Running epoch 5.
+    [==========================================================================================]
+  Running epoch 6.
+    [==========================================================================================]
+  Running epoch 7.
+    [==========================================================================================]
+  Running epoch 8.
+    [==========================================================================================]
+  Running epoch 9.
+    [==========================================================================================]
+  Running epoch 10.
+    [==========================================================================================]
+  Running epoch 11.
+    [==========================================================================================]
+  Running epoch 12.
+    [==========================================================================================]
+  Running epoch 13.
+    [==========================================================================================]
+  Running epoch 14.
+    [==========================================================================================]
+  Running epoch 15.
+    [==========================================================================================]
+  Running epoch 16.
+    [==========================================================================================]
+  Running epoch 17.
+    [==========================================================================================]
+  Running epoch 18.
+    [==========================================================================================]
+  Running epoch 19.
+    [==========================================================================================]
+Saving detector reconstruction.
+Training finished on task reconstruction.
+Training started on task denoise.
+  Running epoch 0.
+    [==========================================================================================]
+  Running epoch 1.
+    [==========================================================================================]
+  Running epoch 2.
+    [==========================================================================================]
+  Running epoch 3.
+    [==========================================================================================]
+  Running epoch 4.
+    [==========================================================================================]
+  Running epoch 5.
+    [==========================================================================================]
+  Running epoch 6.
+    [==========================================================================================]
+  Running epoch 7.
+    [==========================================================================================]
+  Running epoch 8.
+    [==========================================================================================]
+  Running epoch 9.
+    [==========================================================================================]
+  Running epoch 10.
+    [==========================================================================================]
+  Running epoch 11.
+    [==========================================================================================]
+  Running epoch 12.
+    [==========================================================================================]
+  Running epoch 13.
+    [==========================================================================================]
+  Running epoch 14.
+    [==========================================================================================]
+  Running epoch 15.
+    [==========================================================================================]
+  Running epoch 16.
+    [==========================================================================================]
+  Running epoch 17.
+    [==========================================================================================]
+  Running epoch 18.
+    [==========================================================================================]
+  Running epoch 19.
+    [==========================================================================================]
+Saving detector denoise.
+Training finished on task denoise.
+Training started on task colorize.
+  Running epoch 0.
+    [==========================================================================================]
+  Running epoch 1.
+    [==========================================================================================]
+  Running epoch 2.
+    [==========================================================================================]
+  Running epoch 3.
+    [==========================================================================================]
+  Running epoch 4.
+    [==========================================================================================]
+  Running epoch 5.
+    [==========================================================================================]
+  Running epoch 6.
+    [==========================================================================================]
+  Running epoch 7.
+    [==========================================================================================]
+  Running epoch 8.
+    [==========================================================================================]
+  Running epoch 9.
+    [==========================================================================================]
+  Running epoch 10.
+    [==========================================================================================]
+  Running epoch 11.
+    [==========================================================================================]
+  Running epoch 12.
+    [==========================================================================================]
+  Running epoch 13.
+    [==========================================================================================]
+  Running epoch 14.
+    [==========================================================================================]
+  Running epoch 15.
+    [==========================================================================================]
+  Running epoch 16.
+    [==========================================================================================]
+  Running epoch 17.
+    [==========================================================================================]
+  Running epoch 18.
+    [==========================================================================================]
+  Running epoch 19.
+    [==========================================================================================]
+Saving detector colorize.
+Training finished on task colorize.
+Training started on task inpaint.
+  Running epoch 0.
+    [==========================================================================================]
+  Running epoch 1.
+    [==========================================================================================]
+  Running epoch 2.
+    [==========================================================================================]
+  Running epoch 3.
+    [==========================================================================================]
+  Running epoch 4.
+    [==========================================================================================]
+  Running epoch 5.
+    [==========================================================================================]
+  Running epoch 6.
+    [==========================================================================================]
+  Running epoch 7.
+    [==========================================================================================]
+  Running epoch 8.
+    [==========================================================================================]
+  Running epoch 9.
+    [==========================================================================================]
+  Running epoch 10.
+    [==========================================================================================]
+  Running epoch 11.
+    [==========================================================================================]
+  Running epoch 12.
+    [==========================================================================================]
+  Running epoch 13.
+    [==========================================================================================]
+  Running epoch 14.
+    [==========================================================================================]
+  Running epoch 15.
+    [==========================================================================================]
+  Running epoch 16.
+    [==========================================================================================]
+  Running epoch 17.
+    [==========================================================================================]
+  Running epoch 18.
+    [==========================================================================================]
+  Running epoch 19.
+    [==========================================================================================]
+Saving detector inpaint.
+Training finished on task inpaint.
+Testing started on task reconstruction.
+Rebuilding detector reconstruction.
+Rebuilding detector denoise.
+Rebuilding detector colorize.
+Rebuilding detector inpaint.
+Env: reconstruction  Image: 0/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 1/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 2/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 3/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 4/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 5/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 6/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 7/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 8/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 9/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 10/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 11/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 12/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 13/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 14/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 15/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 16/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 17/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 18/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 19/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 20/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 21/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 22/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 23/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 24/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 25/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 26/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 27/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 28/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 29/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 30/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 31/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 32/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 33/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 34/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 35/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 36/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 37/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 38/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 39/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 40/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 41/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 42/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 43/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 44/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 45/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 46/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 47/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 48/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 49/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 50/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 51/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 52/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 53/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 54/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 55/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 56/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 57/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 58/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 59/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 60/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 61/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 62/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 63/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 64/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 65/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 66/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 67/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 68/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 69/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 70/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 71/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 72/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 73/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 74/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 75/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 76/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 77/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 78/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 79/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 80/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 81/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 82/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 83/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 84/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 85/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 86/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 87/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 88/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 89/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 90/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 91/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 92/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 93/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 94/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 95/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 96/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 97/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 98/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 99/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 100/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 101/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 102/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 103/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 104/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 105/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 106/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 107/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 108/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 109/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 110/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 111/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 112/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 113/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 114/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 115/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 116/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 117/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 118/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 119/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 120/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 121/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 122/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 123/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 124/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 125/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 126/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 127/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 128/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 129/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 130/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 131/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 132/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 133/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 134/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 135/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 136/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 137/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 138/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 139/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 140/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 141/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 142/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 143/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 144/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 145/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 146/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 147/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 148/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 149/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 150/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 151/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 152/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 153/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 154/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 155/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 156/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 157/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 158/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 159/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 160/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 161/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 162/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 163/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 164/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 165/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 166/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 167/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 168/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 169/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 170/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 171/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 172/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 173/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 174/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 175/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 176/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 177/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 178/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 179/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 180/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 181/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 182/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 183/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 184/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 185/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 186/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 187/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 188/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 189/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 190/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 191/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 192/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 193/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 194/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 195/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 196/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 197/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 198/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 199/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 200/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 201/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 202/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 203/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 204/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 205/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 206/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 207/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 208/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 209/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 210/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 211/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 212/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 213/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 214/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 215/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 216/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 217/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 218/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 219/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 220/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 221/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 222/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 223/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 224/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 225/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 226/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 227/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 228/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 229/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 230/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 231/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 232/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 233/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 234/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 235/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 236/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 237/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 238/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 239/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 240/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 241/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 242/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 243/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 244/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 245/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 246/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 247/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 248/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 249/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 250/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 251/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 252/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 253/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 254/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 255/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 256/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 257/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 258/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 259/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 260/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 261/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 262/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 263/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 264/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 265/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 266/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 267/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 268/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 269/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 270/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 271/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 272/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 273/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 274/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 275/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 276/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 277/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 278/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 279/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 280/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 281/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 282/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 283/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 284/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 285/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 286/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 287/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 288/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 289/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 290/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 291/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 292/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 293/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 294/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 295/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 296/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 297/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 298/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 299/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 300/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 301/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 302/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 303/312  Pred: inpaint  Correct: False
+Env: reconstruction  Image: 304/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 305/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 306/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 307/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 308/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 309/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 310/312  Pred: reconstruction  Correct: True
+Env: reconstruction  Image: 311/312  Pred: reconstruction  Correct: True
+Testing finished on task reconstruction.
+Testing started on task denoise.
+Env: denoise  Image: 0/312  Pred: denoise  Correct: True
+Env: denoise  Image: 1/312  Pred: denoise  Correct: True
+Env: denoise  Image: 2/312  Pred: denoise  Correct: True
+Env: denoise  Image: 3/312  Pred: denoise  Correct: True
+Env: denoise  Image: 4/312  Pred: denoise  Correct: True
+Env: denoise  Image: 5/312  Pred: denoise  Correct: True
+Env: denoise  Image: 6/312  Pred: denoise  Correct: True
+Env: denoise  Image: 7/312  Pred: denoise  Correct: True
+Env: denoise  Image: 8/312  Pred: denoise  Correct: True
+Env: denoise  Image: 9/312  Pred: denoise  Correct: True
+Env: denoise  Image: 10/312  Pred: denoise  Correct: True
+Env: denoise  Image: 11/312  Pred: denoise  Correct: True
+Env: denoise  Image: 12/312  Pred: denoise  Correct: True
+Env: denoise  Image: 13/312  Pred: denoise  Correct: True
+Env: denoise  Image: 14/312  Pred: denoise  Correct: True
+Env: denoise  Image: 15/312  Pred: denoise  Correct: True
+Env: denoise  Image: 16/312  Pred: denoise  Correct: True
+Env: denoise  Image: 17/312  Pred: denoise  Correct: True
+Env: denoise  Image: 18/312  Pred: denoise  Correct: True
+Env: denoise  Image: 19/312  Pred: denoise  Correct: True
+Env: denoise  Image: 20/312  Pred: denoise  Correct: True
+Env: denoise  Image: 21/312  Pred: denoise  Correct: True
+Env: denoise  Image: 22/312  Pred: denoise  Correct: True
+Env: denoise  Image: 23/312  Pred: denoise  Correct: True
+Env: denoise  Image: 24/312  Pred: denoise  Correct: True
+Env: denoise  Image: 25/312  Pred: denoise  Correct: True
+Env: denoise  Image: 26/312  Pred: denoise  Correct: True
+Env: denoise  Image: 27/312  Pred: denoise  Correct: True
+Env: denoise  Image: 28/312  Pred: denoise  Correct: True
+Env: denoise  Image: 29/312  Pred: denoise  Correct: True
+Env: denoise  Image: 30/312  Pred: denoise  Correct: True
+Env: denoise  Image: 31/312  Pred: denoise  Correct: True
+Env: denoise  Image: 32/312  Pred: denoise  Correct: True
+Env: denoise  Image: 33/312  Pred: denoise  Correct: True
+Env: denoise  Image: 34/312  Pred: denoise  Correct: True
+Env: denoise  Image: 35/312  Pred: denoise  Correct: True
+Env: denoise  Image: 36/312  Pred: denoise  Correct: True
+Env: denoise  Image: 37/312  Pred: denoise  Correct: True
+Env: denoise  Image: 38/312  Pred: denoise  Correct: True
+Env: denoise  Image: 39/312  Pred: denoise  Correct: True
+Env: denoise  Image: 40/312  Pred: denoise  Correct: True
+Env: denoise  Image: 41/312  Pred: denoise  Correct: True
+Env: denoise  Image: 42/312  Pred: denoise  Correct: True
+Env: denoise  Image: 43/312  Pred: denoise  Correct: True
+Env: denoise  Image: 44/312  Pred: denoise  Correct: True
+Env: denoise  Image: 45/312  Pred: denoise  Correct: True
+Env: denoise  Image: 46/312  Pred: denoise  Correct: True
+Env: denoise  Image: 47/312  Pred: denoise  Correct: True
+Env: denoise  Image: 48/312  Pred: denoise  Correct: True
+Env: denoise  Image: 49/312  Pred: denoise  Correct: True
+Env: denoise  Image: 50/312  Pred: denoise  Correct: True
+Env: denoise  Image: 51/312  Pred: denoise  Correct: True
+Env: denoise  Image: 52/312  Pred: denoise  Correct: True
+Env: denoise  Image: 53/312  Pred: denoise  Correct: True
+Env: denoise  Image: 54/312  Pred: denoise  Correct: True
+Env: denoise  Image: 55/312  Pred: denoise  Correct: True
+Env: denoise  Image: 56/312  Pred: denoise  Correct: True
+Env: denoise  Image: 57/312  Pred: denoise  Correct: True
+Env: denoise  Image: 58/312  Pred: denoise  Correct: True
+Env: denoise  Image: 59/312  Pred: denoise  Correct: True
+Env: denoise  Image: 60/312  Pred: denoise  Correct: True
+Env: denoise  Image: 61/312  Pred: denoise  Correct: True
+Env: denoise  Image: 62/312  Pred: denoise  Correct: True
+Env: denoise  Image: 63/312  Pred: denoise  Correct: True
+Env: denoise  Image: 64/312  Pred: denoise  Correct: True
+Env: denoise  Image: 65/312  Pred: denoise  Correct: True
+Env: denoise  Image: 66/312  Pred: denoise  Correct: True
+Env: denoise  Image: 67/312  Pred: denoise  Correct: True
+Env: denoise  Image: 68/312  Pred: denoise  Correct: True
+Env: denoise  Image: 69/312  Pred: denoise  Correct: True
+Env: denoise  Image: 70/312  Pred: denoise  Correct: True
+Env: denoise  Image: 71/312  Pred: denoise  Correct: True
+Env: denoise  Image: 72/312  Pred: denoise  Correct: True
+Env: denoise  Image: 73/312  Pred: denoise  Correct: True
+Env: denoise  Image: 74/312  Pred: denoise  Correct: True
+Env: denoise  Image: 75/312  Pred: denoise  Correct: True
+Env: denoise  Image: 76/312  Pred: denoise  Correct: True
+Env: denoise  Image: 77/312  Pred: denoise  Correct: True
+Env: denoise  Image: 78/312  Pred: denoise  Correct: True
+Env: denoise  Image: 79/312  Pred: denoise  Correct: True
+Env: denoise  Image: 80/312  Pred: denoise  Correct: True
+Env: denoise  Image: 81/312  Pred: denoise  Correct: True
+Env: denoise  Image: 82/312  Pred: denoise  Correct: True
+Env: denoise  Image: 83/312  Pred: denoise  Correct: True
+Env: denoise  Image: 84/312  Pred: denoise  Correct: True
+Env: denoise  Image: 85/312  Pred: denoise  Correct: True
+Env: denoise  Image: 86/312  Pred: denoise  Correct: True
+Env: denoise  Image: 87/312  Pred: denoise  Correct: True
+Env: denoise  Image: 88/312  Pred: denoise  Correct: True
+Env: denoise  Image: 89/312  Pred: denoise  Correct: True
+Env: denoise  Image: 90/312  Pred: denoise  Correct: True
+Env: denoise  Image: 91/312  Pred: denoise  Correct: True
+Env: denoise  Image: 92/312  Pred: denoise  Correct: True
+Env: denoise  Image: 93/312  Pred: denoise  Correct: True
+Env: denoise  Image: 94/312  Pred: denoise  Correct: True
+Env: denoise  Image: 95/312  Pred: denoise  Correct: True
+Env: denoise  Image: 96/312  Pred: denoise  Correct: True
+Env: denoise  Image: 97/312  Pred: denoise  Correct: True
+Env: denoise  Image: 98/312  Pred: denoise  Correct: True
+Env: denoise  Image: 99/312  Pred: denoise  Correct: True
+Env: denoise  Image: 100/312  Pred: denoise  Correct: True
+Env: denoise  Image: 101/312  Pred: denoise  Correct: True
+Env: denoise  Image: 102/312  Pred: denoise  Correct: True
+Env: denoise  Image: 103/312  Pred: denoise  Correct: True
+Env: denoise  Image: 104/312  Pred: denoise  Correct: True
+Env: denoise  Image: 105/312  Pred: denoise  Correct: True
+Env: denoise  Image: 106/312  Pred: denoise  Correct: True
+Env: denoise  Image: 107/312  Pred: denoise  Correct: True
+Env: denoise  Image: 108/312  Pred: denoise  Correct: True
+Env: denoise  Image: 109/312  Pred: denoise  Correct: True
+Env: denoise  Image: 110/312  Pred: denoise  Correct: True
+Env: denoise  Image: 111/312  Pred: denoise  Correct: True
+Env: denoise  Image: 112/312  Pred: denoise  Correct: True
+Env: denoise  Image: 113/312  Pred: denoise  Correct: True
+Env: denoise  Image: 114/312  Pred: denoise  Correct: True
+Env: denoise  Image: 115/312  Pred: denoise  Correct: True
+Env: denoise  Image: 116/312  Pred: denoise  Correct: True
+Env: denoise  Image: 117/312  Pred: denoise  Correct: True
+Env: denoise  Image: 118/312  Pred: denoise  Correct: True
+Env: denoise  Image: 119/312  Pred: denoise  Correct: True
+Env: denoise  Image: 120/312  Pred: denoise  Correct: True
+Env: denoise  Image: 121/312  Pred: denoise  Correct: True
+Env: denoise  Image: 122/312  Pred: denoise  Correct: True
+Env: denoise  Image: 123/312  Pred: denoise  Correct: True
+Env: denoise  Image: 124/312  Pred: denoise  Correct: True
+Env: denoise  Image: 125/312  Pred: denoise  Correct: True
+Env: denoise  Image: 126/312  Pred: denoise  Correct: True
+Env: denoise  Image: 127/312  Pred: denoise  Correct: True
+Env: denoise  Image: 128/312  Pred: denoise  Correct: True
+Env: denoise  Image: 129/312  Pred: denoise  Correct: True
+Env: denoise  Image: 130/312  Pred: denoise  Correct: True
+Env: denoise  Image: 131/312  Pred: denoise  Correct: True
+Env: denoise  Image: 132/312  Pred: denoise  Correct: True
+Env: denoise  Image: 133/312  Pred: denoise  Correct: True
+Env: denoise  Image: 134/312  Pred: denoise  Correct: True
+Env: denoise  Image: 135/312  Pred: denoise  Correct: True
+Env: denoise  Image: 136/312  Pred: denoise  Correct: True
+Env: denoise  Image: 137/312  Pred: denoise  Correct: True
+Env: denoise  Image: 138/312  Pred: denoise  Correct: True
+Env: denoise  Image: 139/312  Pred: denoise  Correct: True
+Env: denoise  Image: 140/312  Pred: denoise  Correct: True
+Env: denoise  Image: 141/312  Pred: denoise  Correct: True
+Env: denoise  Image: 142/312  Pred: denoise  Correct: True
+Env: denoise  Image: 143/312  Pred: denoise  Correct: True
+Env: denoise  Image: 144/312  Pred: denoise  Correct: True
+Env: denoise  Image: 145/312  Pred: denoise  Correct: True
+Env: denoise  Image: 146/312  Pred: denoise  Correct: True
+Env: denoise  Image: 147/312  Pred: denoise  Correct: True
+Env: denoise  Image: 148/312  Pred: denoise  Correct: True
+Env: denoise  Image: 149/312  Pred: denoise  Correct: True
+Env: denoise  Image: 150/312  Pred: denoise  Correct: True
+Env: denoise  Image: 151/312  Pred: denoise  Correct: True
+Env: denoise  Image: 152/312  Pred: denoise  Correct: True
+Env: denoise  Image: 153/312  Pred: denoise  Correct: True
+Env: denoise  Image: 154/312  Pred: denoise  Correct: True
+Env: denoise  Image: 155/312  Pred: denoise  Correct: True
+Env: denoise  Image: 156/312  Pred: denoise  Correct: True
+Env: denoise  Image: 157/312  Pred: denoise  Correct: True
+Env: denoise  Image: 158/312  Pred: denoise  Correct: True
+Env: denoise  Image: 159/312  Pred: denoise  Correct: True
+Env: denoise  Image: 160/312  Pred: denoise  Correct: True
+Env: denoise  Image: 161/312  Pred: denoise  Correct: True
+Env: denoise  Image: 162/312  Pred: denoise  Correct: True
+Env: denoise  Image: 163/312  Pred: denoise  Correct: True
+Env: denoise  Image: 164/312  Pred: denoise  Correct: True
+Env: denoise  Image: 165/312  Pred: denoise  Correct: True
+Env: denoise  Image: 166/312  Pred: denoise  Correct: True
+Env: denoise  Image: 167/312  Pred: denoise  Correct: True
+Env: denoise  Image: 168/312  Pred: denoise  Correct: True
+Env: denoise  Image: 169/312  Pred: denoise  Correct: True
+Env: denoise  Image: 170/312  Pred: denoise  Correct: True
+Env: denoise  Image: 171/312  Pred: denoise  Correct: True
+Env: denoise  Image: 172/312  Pred: denoise  Correct: True
+Env: denoise  Image: 173/312  Pred: denoise  Correct: True
+Env: denoise  Image: 174/312  Pred: denoise  Correct: True
+Env: denoise  Image: 175/312  Pred: denoise  Correct: True
+Env: denoise  Image: 176/312  Pred: denoise  Correct: True
+Env: denoise  Image: 177/312  Pred: denoise  Correct: True
+Env: denoise  Image: 178/312  Pred: denoise  Correct: True
+Env: denoise  Image: 179/312  Pred: denoise  Correct: True
+Env: denoise  Image: 180/312  Pred: denoise  Correct: True
+Env: denoise  Image: 181/312  Pred: denoise  Correct: True
+Env: denoise  Image: 182/312  Pred: denoise  Correct: True
+Env: denoise  Image: 183/312  Pred: denoise  Correct: True
+Env: denoise  Image: 184/312  Pred: denoise  Correct: True
+Env: denoise  Image: 185/312  Pred: denoise  Correct: True
+Env: denoise  Image: 186/312  Pred: denoise  Correct: True
+Env: denoise  Image: 187/312  Pred: denoise  Correct: True
+Env: denoise  Image: 188/312  Pred: denoise  Correct: True
+Env: denoise  Image: 189/312  Pred: denoise  Correct: True
+Env: denoise  Image: 190/312  Pred: denoise  Correct: True
+Env: denoise  Image: 191/312  Pred: denoise  Correct: True
+Env: denoise  Image: 192/312  Pred: denoise  Correct: True
+Env: denoise  Image: 193/312  Pred: denoise  Correct: True
+Env: denoise  Image: 194/312  Pred: denoise  Correct: True
+Env: denoise  Image: 195/312  Pred: denoise  Correct: True
+Env: denoise  Image: 196/312  Pred: denoise  Correct: True
+Env: denoise  Image: 197/312  Pred: denoise  Correct: True
+Env: denoise  Image: 198/312  Pred: denoise  Correct: True
+Env: denoise  Image: 199/312  Pred: denoise  Correct: True
+Env: denoise  Image: 200/312  Pred: denoise  Correct: True
+Env: denoise  Image: 201/312  Pred: denoise  Correct: True
+Env: denoise  Image: 202/312  Pred: denoise  Correct: True
+Env: denoise  Image: 203/312  Pred: denoise  Correct: True
+Env: denoise  Image: 204/312  Pred: denoise  Correct: True
+Env: denoise  Image: 205/312  Pred: denoise  Correct: True
+Env: denoise  Image: 206/312  Pred: denoise  Correct: True
+Env: denoise  Image: 207/312  Pred: denoise  Correct: True
+Env: denoise  Image: 208/312  Pred: denoise  Correct: True
+Env: denoise  Image: 209/312  Pred: denoise  Correct: True
+Env: denoise  Image: 210/312  Pred: denoise  Correct: True
+Env: denoise  Image: 211/312  Pred: denoise  Correct: True
+Env: denoise  Image: 212/312  Pred: denoise  Correct: True
+Env: denoise  Image: 213/312  Pred: denoise  Correct: True
+Env: denoise  Image: 214/312  Pred: denoise  Correct: True
+Env: denoise  Image: 215/312  Pred: denoise  Correct: True
+Env: denoise  Image: 216/312  Pred: denoise  Correct: True
+Env: denoise  Image: 217/312  Pred: denoise  Correct: True
+Env: denoise  Image: 218/312  Pred: denoise  Correct: True
+Env: denoise  Image: 219/312  Pred: denoise  Correct: True
+Env: denoise  Image: 220/312  Pred: denoise  Correct: True
+Env: denoise  Image: 221/312  Pred: denoise  Correct: True
+Env: denoise  Image: 222/312  Pred: denoise  Correct: True
+Env: denoise  Image: 223/312  Pred: denoise  Correct: True
+Env: denoise  Image: 224/312  Pred: denoise  Correct: True
+Env: denoise  Image: 225/312  Pred: denoise  Correct: True
+Env: denoise  Image: 226/312  Pred: denoise  Correct: True
+Env: denoise  Image: 227/312  Pred: denoise  Correct: True
+Env: denoise  Image: 228/312  Pred: denoise  Correct: True
+Env: denoise  Image: 229/312  Pred: denoise  Correct: True
+Env: denoise  Image: 230/312  Pred: denoise  Correct: True
+Env: denoise  Image: 231/312  Pred: denoise  Correct: True
+Env: denoise  Image: 232/312  Pred: denoise  Correct: True
+Env: denoise  Image: 233/312  Pred: denoise  Correct: True
+Env: denoise  Image: 234/312  Pred: denoise  Correct: True
+Env: denoise  Image: 235/312  Pred: denoise  Correct: True
+Env: denoise  Image: 236/312  Pred: denoise  Correct: True
+Env: denoise  Image: 237/312  Pred: denoise  Correct: True
+Env: denoise  Image: 238/312  Pred: denoise  Correct: True
+Env: denoise  Image: 239/312  Pred: denoise  Correct: True
+Env: denoise  Image: 240/312  Pred: denoise  Correct: True
+Env: denoise  Image: 241/312  Pred: denoise  Correct: True
+Env: denoise  Image: 242/312  Pred: denoise  Correct: True
+Env: denoise  Image: 243/312  Pred: denoise  Correct: True
+Env: denoise  Image: 244/312  Pred: denoise  Correct: True
+Env: denoise  Image: 245/312  Pred: denoise  Correct: True
+Env: denoise  Image: 246/312  Pred: denoise  Correct: True
+Env: denoise  Image: 247/312  Pred: denoise  Correct: True
+Env: denoise  Image: 248/312  Pred: denoise  Correct: True
+Env: denoise  Image: 249/312  Pred: denoise  Correct: True
+Env: denoise  Image: 250/312  Pred: denoise  Correct: True
+Env: denoise  Image: 251/312  Pred: denoise  Correct: True
+Env: denoise  Image: 252/312  Pred: denoise  Correct: True
+Env: denoise  Image: 253/312  Pred: denoise  Correct: True
+Env: denoise  Image: 254/312  Pred: denoise  Correct: True
+Env: denoise  Image: 255/312  Pred: denoise  Correct: True
+Env: denoise  Image: 256/312  Pred: denoise  Correct: True
+Env: denoise  Image: 257/312  Pred: denoise  Correct: True
+Env: denoise  Image: 258/312  Pred: denoise  Correct: True
+Env: denoise  Image: 259/312  Pred: denoise  Correct: True
+Env: denoise  Image: 260/312  Pred: denoise  Correct: True
+Env: denoise  Image: 261/312  Pred: denoise  Correct: True
+Env: denoise  Image: 262/312  Pred: denoise  Correct: True
+Env: denoise  Image: 263/312  Pred: denoise  Correct: True
+Env: denoise  Image: 264/312  Pred: denoise  Correct: True
+Env: denoise  Image: 265/312  Pred: denoise  Correct: True
+Env: denoise  Image: 266/312  Pred: denoise  Correct: True
+Env: denoise  Image: 267/312  Pred: denoise  Correct: True
+Env: denoise  Image: 268/312  Pred: denoise  Correct: True
+Env: denoise  Image: 269/312  Pred: denoise  Correct: True
+Env: denoise  Image: 270/312  Pred: denoise  Correct: True
+Env: denoise  Image: 271/312  Pred: denoise  Correct: True
+Env: denoise  Image: 272/312  Pred: denoise  Correct: True
+Env: denoise  Image: 273/312  Pred: denoise  Correct: True
+Env: denoise  Image: 274/312  Pred: denoise  Correct: True
+Env: denoise  Image: 275/312  Pred: denoise  Correct: True
+Env: denoise  Image: 276/312  Pred: denoise  Correct: True
+Env: denoise  Image: 277/312  Pred: denoise  Correct: True
+Env: denoise  Image: 278/312  Pred: denoise  Correct: True
+Env: denoise  Image: 279/312  Pred: denoise  Correct: True
+Env: denoise  Image: 280/312  Pred: denoise  Correct: True
+Env: denoise  Image: 281/312  Pred: denoise  Correct: True
+Env: denoise  Image: 282/312  Pred: denoise  Correct: True
+Env: denoise  Image: 283/312  Pred: denoise  Correct: True
+Env: denoise  Image: 284/312  Pred: denoise  Correct: True
+Env: denoise  Image: 285/312  Pred: denoise  Correct: True
+Env: denoise  Image: 286/312  Pred: denoise  Correct: True
+Env: denoise  Image: 287/312  Pred: denoise  Correct: True
+Env: denoise  Image: 288/312  Pred: denoise  Correct: True
+Env: denoise  Image: 289/312  Pred: denoise  Correct: True
+Env: denoise  Image: 290/312  Pred: denoise  Correct: True
+Env: denoise  Image: 291/312  Pred: denoise  Correct: True
+Env: denoise  Image: 292/312  Pred: denoise  Correct: True
+Env: denoise  Image: 293/312  Pred: denoise  Correct: True
+Env: denoise  Image: 294/312  Pred: denoise  Correct: True
+Env: denoise  Image: 295/312  Pred: denoise  Correct: True
+Env: denoise  Image: 296/312  Pred: denoise  Correct: True
+Env: denoise  Image: 297/312  Pred: denoise  Correct: True
+Env: denoise  Image: 298/312  Pred: denoise  Correct: True
+Env: denoise  Image: 299/312  Pred: denoise  Correct: True
+Env: denoise  Image: 300/312  Pred: denoise  Correct: True
+Env: denoise  Image: 301/312  Pred: denoise  Correct: True
+Env: denoise  Image: 302/312  Pred: denoise  Correct: True
+Env: denoise  Image: 303/312  Pred: denoise  Correct: True
+Env: denoise  Image: 304/312  Pred: denoise  Correct: True
+Env: denoise  Image: 305/312  Pred: denoise  Correct: True
+Env: denoise  Image: 306/312  Pred: denoise  Correct: True
+Env: denoise  Image: 307/312  Pred: denoise  Correct: True
+Env: denoise  Image: 308/312  Pred: denoise  Correct: True
+Env: denoise  Image: 309/312  Pred: denoise  Correct: True
+Env: denoise  Image: 310/312  Pred: denoise  Correct: True
+Env: denoise  Image: 311/312  Pred: denoise  Correct: True
+Testing finished on task denoise.
+Testing started on task colorize.
+Env: colorize  Image: 0/312  Pred: colorize  Correct: True
+Env: colorize  Image: 1/312  Pred: colorize  Correct: True
+Env: colorize  Image: 2/312  Pred: colorize  Correct: True
+Env: colorize  Image: 3/312  Pred: colorize  Correct: True
+Env: colorize  Image: 4/312  Pred: colorize  Correct: True
+Env: colorize  Image: 5/312  Pred: colorize  Correct: True
+Env: colorize  Image: 6/312  Pred: colorize  Correct: True
+Env: colorize  Image: 7/312  Pred: colorize  Correct: True
+Env: colorize  Image: 8/312  Pred: colorize  Correct: True
+Env: colorize  Image: 9/312  Pred: colorize  Correct: True
+Env: colorize  Image: 10/312  Pred: colorize  Correct: True
+Env: colorize  Image: 11/312  Pred: colorize  Correct: True
+Env: colorize  Image: 12/312  Pred: colorize  Correct: True
+Env: colorize  Image: 13/312  Pred: colorize  Correct: True
+Env: colorize  Image: 14/312  Pred: colorize  Correct: True
+Env: colorize  Image: 15/312  Pred: colorize  Correct: True
+Env: colorize  Image: 16/312  Pred: colorize  Correct: True
+Env: colorize  Image: 17/312  Pred: colorize  Correct: True
+Env: colorize  Image: 18/312  Pred: colorize  Correct: True
+Env: colorize  Image: 19/312  Pred: colorize  Correct: True
+Env: colorize  Image: 20/312  Pred: colorize  Correct: True
+Env: colorize  Image: 21/312  Pred: colorize  Correct: True
+Env: colorize  Image: 22/312  Pred: colorize  Correct: True
+Env: colorize  Image: 23/312  Pred: colorize  Correct: True
+Env: colorize  Image: 24/312  Pred: colorize  Correct: True
+Env: colorize  Image: 25/312  Pred: colorize  Correct: True
+Env: colorize  Image: 26/312  Pred: colorize  Correct: True
+Env: colorize  Image: 27/312  Pred: colorize  Correct: True
+Env: colorize  Image: 28/312  Pred: colorize  Correct: True
+Env: colorize  Image: 29/312  Pred: colorize  Correct: True
+Env: colorize  Image: 30/312  Pred: colorize  Correct: True
+Env: colorize  Image: 31/312  Pred: colorize  Correct: True
+Env: colorize  Image: 32/312  Pred: colorize  Correct: True
+Env: colorize  Image: 33/312  Pred: colorize  Correct: True
+Env: colorize  Image: 34/312  Pred: colorize  Correct: True
+Env: colorize  Image: 35/312  Pred: colorize  Correct: True
+Env: colorize  Image: 36/312  Pred: colorize  Correct: True
+Env: colorize  Image: 37/312  Pred: colorize  Correct: True
+Env: colorize  Image: 38/312  Pred: colorize  Correct: True
+Env: colorize  Image: 39/312  Pred: colorize  Correct: True
+Env: colorize  Image: 40/312  Pred: colorize  Correct: True
+Env: colorize  Image: 41/312  Pred: colorize  Correct: True
+Env: colorize  Image: 42/312  Pred: colorize  Correct: True
+Env: colorize  Image: 43/312  Pred: colorize  Correct: True
+Env: colorize  Image: 44/312  Pred: colorize  Correct: True
+Env: colorize  Image: 45/312  Pred: colorize  Correct: True
+Env: colorize  Image: 46/312  Pred: colorize  Correct: True
+Env: colorize  Image: 47/312  Pred: colorize  Correct: True
+Env: colorize  Image: 48/312  Pred: colorize  Correct: True
+Env: colorize  Image: 49/312  Pred: colorize  Correct: True
+Env: colorize  Image: 50/312  Pred: colorize  Correct: True
+Env: colorize  Image: 51/312  Pred: colorize  Correct: True
+Env: colorize  Image: 52/312  Pred: colorize  Correct: True
+Env: colorize  Image: 53/312  Pred: colorize  Correct: True
+Env: colorize  Image: 54/312  Pred: colorize  Correct: True
+Env: colorize  Image: 55/312  Pred: colorize  Correct: True
+Env: colorize  Image: 56/312  Pred: colorize  Correct: True
+Env: colorize  Image: 57/312  Pred: colorize  Correct: True
+Env: colorize  Image: 58/312  Pred: colorize  Correct: True
+Env: colorize  Image: 59/312  Pred: colorize  Correct: True
+Env: colorize  Image: 60/312  Pred: colorize  Correct: True
+Env: colorize  Image: 61/312  Pred: colorize  Correct: True
+Env: colorize  Image: 62/312  Pred: colorize  Correct: True
+Env: colorize  Image: 63/312  Pred: colorize  Correct: True
+Env: colorize  Image: 64/312  Pred: colorize  Correct: True
+Env: colorize  Image: 65/312  Pred: colorize  Correct: True
+Env: colorize  Image: 66/312  Pred: colorize  Correct: True
+Env: colorize  Image: 67/312  Pred: colorize  Correct: True
+Env: colorize  Image: 68/312  Pred: colorize  Correct: True
+Env: colorize  Image: 69/312  Pred: colorize  Correct: True
+Env: colorize  Image: 70/312  Pred: colorize  Correct: True
+Env: colorize  Image: 71/312  Pred: colorize  Correct: True
+Env: colorize  Image: 72/312  Pred: colorize  Correct: True
+Env: colorize  Image: 73/312  Pred: colorize  Correct: True
+Env: colorize  Image: 74/312  Pred: colorize  Correct: True
+Env: colorize  Image: 75/312  Pred: colorize  Correct: True
+Env: colorize  Image: 76/312  Pred: colorize  Correct: True
+Env: colorize  Image: 77/312  Pred: colorize  Correct: True
+Env: colorize  Image: 78/312  Pred: colorize  Correct: True
+Env: colorize  Image: 79/312  Pred: colorize  Correct: True
+Env: colorize  Image: 80/312  Pred: colorize  Correct: True
+Env: colorize  Image: 81/312  Pred: colorize  Correct: True
+Env: colorize  Image: 82/312  Pred: colorize  Correct: True
+Env: colorize  Image: 83/312  Pred: colorize  Correct: True
+Env: colorize  Image: 84/312  Pred: colorize  Correct: True
+Env: colorize  Image: 85/312  Pred: colorize  Correct: True
+Env: colorize  Image: 86/312  Pred: colorize  Correct: True
+Env: colorize  Image: 87/312  Pred: colorize  Correct: True
+Env: colorize  Image: 88/312  Pred: colorize  Correct: True
+Env: colorize  Image: 89/312  Pred: colorize  Correct: True
+Env: colorize  Image: 90/312  Pred: colorize  Correct: True
+Env: colorize  Image: 91/312  Pred: colorize  Correct: True
+Env: colorize  Image: 92/312  Pred: colorize  Correct: True
+Env: colorize  Image: 93/312  Pred: colorize  Correct: True
+Env: colorize  Image: 94/312  Pred: colorize  Correct: True
+Env: colorize  Image: 95/312  Pred: colorize  Correct: True
+Env: colorize  Image: 96/312  Pred: colorize  Correct: True
+Env: colorize  Image: 97/312  Pred: colorize  Correct: True
+Env: colorize  Image: 98/312  Pred: colorize  Correct: True
+Env: colorize  Image: 99/312  Pred: colorize  Correct: True
+Env: colorize  Image: 100/312  Pred: colorize  Correct: True
+Env: colorize  Image: 101/312  Pred: colorize  Correct: True
+Env: colorize  Image: 102/312  Pred: colorize  Correct: True
+Env: colorize  Image: 103/312  Pred: colorize  Correct: True
+Env: colorize  Image: 104/312  Pred: colorize  Correct: True
+Env: colorize  Image: 105/312  Pred: colorize  Correct: True
+Env: colorize  Image: 106/312  Pred: colorize  Correct: True
+Env: colorize  Image: 107/312  Pred: colorize  Correct: True
+Env: colorize  Image: 108/312  Pred: colorize  Correct: True
+Env: colorize  Image: 109/312  Pred: colorize  Correct: True
+Env: colorize  Image: 110/312  Pred: colorize  Correct: True
+Env: colorize  Image: 111/312  Pred: colorize  Correct: True
+Env: colorize  Image: 112/312  Pred: colorize  Correct: True
+Env: colorize  Image: 113/312  Pred: colorize  Correct: True
+Env: colorize  Image: 114/312  Pred: colorize  Correct: True
+Env: colorize  Image: 115/312  Pred: colorize  Correct: True
+Env: colorize  Image: 116/312  Pred: colorize  Correct: True
+Env: colorize  Image: 117/312  Pred: colorize  Correct: True
+Env: colorize  Image: 118/312  Pred: colorize  Correct: True
+Env: colorize  Image: 119/312  Pred: colorize  Correct: True
+Env: colorize  Image: 120/312  Pred: colorize  Correct: True
+Env: colorize  Image: 121/312  Pred: colorize  Correct: True
+Env: colorize  Image: 122/312  Pred: colorize  Correct: True
+Env: colorize  Image: 123/312  Pred: colorize  Correct: True
+Env: colorize  Image: 124/312  Pred: colorize  Correct: True
+Env: colorize  Image: 125/312  Pred: colorize  Correct: True
+Env: colorize  Image: 126/312  Pred: colorize  Correct: True
+Env: colorize  Image: 127/312  Pred: colorize  Correct: True
+Env: colorize  Image: 128/312  Pred: colorize  Correct: True
+Env: colorize  Image: 129/312  Pred: colorize  Correct: True
+Env: colorize  Image: 130/312  Pred: colorize  Correct: True
+Env: colorize  Image: 131/312  Pred: colorize  Correct: True
+Env: colorize  Image: 132/312  Pred: colorize  Correct: True
+Env: colorize  Image: 133/312  Pred: colorize  Correct: True
+Env: colorize  Image: 134/312  Pred: colorize  Correct: True
+Env: colorize  Image: 135/312  Pred: colorize  Correct: True
+Env: colorize  Image: 136/312  Pred: colorize  Correct: True
+Env: colorize  Image: 137/312  Pred: colorize  Correct: True
+Env: colorize  Image: 138/312  Pred: colorize  Correct: True
+Env: colorize  Image: 139/312  Pred: colorize  Correct: True
+Env: colorize  Image: 140/312  Pred: colorize  Correct: True
+Env: colorize  Image: 141/312  Pred: colorize  Correct: True
+Env: colorize  Image: 142/312  Pred: colorize  Correct: True
+Env: colorize  Image: 143/312  Pred: colorize  Correct: True
+Env: colorize  Image: 144/312  Pred: colorize  Correct: True
+Env: colorize  Image: 145/312  Pred: colorize  Correct: True
+Env: colorize  Image: 146/312  Pred: colorize  Correct: True
+Env: colorize  Image: 147/312  Pred: colorize  Correct: True
+Env: colorize  Image: 148/312  Pred: colorize  Correct: True
+Env: colorize  Image: 149/312  Pred: colorize  Correct: True
+Env: colorize  Image: 150/312  Pred: colorize  Correct: True
+Env: colorize  Image: 151/312  Pred: colorize  Correct: True
+Env: colorize  Image: 152/312  Pred: colorize  Correct: True
+Env: colorize  Image: 153/312  Pred: colorize  Correct: True
+Env: colorize  Image: 154/312  Pred: colorize  Correct: True
+Env: colorize  Image: 155/312  Pred: colorize  Correct: True
+Env: colorize  Image: 156/312  Pred: colorize  Correct: True
+Env: colorize  Image: 157/312  Pred: colorize  Correct: True
+Env: colorize  Image: 158/312  Pred: colorize  Correct: True
+Env: colorize  Image: 159/312  Pred: colorize  Correct: True
+Env: colorize  Image: 160/312  Pred: colorize  Correct: True
+Env: colorize  Image: 161/312  Pred: colorize  Correct: True
+Env: colorize  Image: 162/312  Pred: colorize  Correct: True
+Env: colorize  Image: 163/312  Pred: colorize  Correct: True
+Env: colorize  Image: 164/312  Pred: colorize  Correct: True
+Env: colorize  Image: 165/312  Pred: colorize  Correct: True
+Env: colorize  Image: 166/312  Pred: colorize  Correct: True
+Env: colorize  Image: 167/312  Pred: colorize  Correct: True
+Env: colorize  Image: 168/312  Pred: colorize  Correct: True
+Env: colorize  Image: 169/312  Pred: colorize  Correct: True
+Env: colorize  Image: 170/312  Pred: colorize  Correct: True
+Env: colorize  Image: 171/312  Pred: colorize  Correct: True
+Env: colorize  Image: 172/312  Pred: colorize  Correct: True
+Env: colorize  Image: 173/312  Pred: colorize  Correct: True
+Env: colorize  Image: 174/312  Pred: colorize  Correct: True
+Env: colorize  Image: 175/312  Pred: colorize  Correct: True
+Env: colorize  Image: 176/312  Pred: colorize  Correct: True
+Env: colorize  Image: 177/312  Pred: colorize  Correct: True
+Env: colorize  Image: 178/312  Pred: colorize  Correct: True
+Env: colorize  Image: 179/312  Pred: colorize  Correct: True
+Env: colorize  Image: 180/312  Pred: colorize  Correct: True
+Env: colorize  Image: 181/312  Pred: colorize  Correct: True
+Env: colorize  Image: 182/312  Pred: colorize  Correct: True
+Env: colorize  Image: 183/312  Pred: colorize  Correct: True
+Env: colorize  Image: 184/312  Pred: colorize  Correct: True
+Env: colorize  Image: 185/312  Pred: colorize  Correct: True
+Env: colorize  Image: 186/312  Pred: colorize  Correct: True
+Env: colorize  Image: 187/312  Pred: colorize  Correct: True
+Env: colorize  Image: 188/312  Pred: colorize  Correct: True
+Env: colorize  Image: 189/312  Pred: colorize  Correct: True
+Env: colorize  Image: 190/312  Pred: colorize  Correct: True
+Env: colorize  Image: 191/312  Pred: colorize  Correct: True
+Env: colorize  Image: 192/312  Pred: colorize  Correct: True
+Env: colorize  Image: 193/312  Pred: colorize  Correct: True
+Env: colorize  Image: 194/312  Pred: colorize  Correct: True
+Env: colorize  Image: 195/312  Pred: colorize  Correct: True
+Env: colorize  Image: 196/312  Pred: colorize  Correct: True
+Env: colorize  Image: 197/312  Pred: colorize  Correct: True
+Env: colorize  Image: 198/312  Pred: colorize  Correct: True
+Env: colorize  Image: 199/312  Pred: colorize  Correct: True
+Env: colorize  Image: 200/312  Pred: colorize  Correct: True
+Env: colorize  Image: 201/312  Pred: colorize  Correct: True
+Env: colorize  Image: 202/312  Pred: colorize  Correct: True
+Env: colorize  Image: 203/312  Pred: colorize  Correct: True
+Env: colorize  Image: 204/312  Pred: colorize  Correct: True
+Env: colorize  Image: 205/312  Pred: colorize  Correct: True
+Env: colorize  Image: 206/312  Pred: colorize  Correct: True
+Env: colorize  Image: 207/312  Pred: colorize  Correct: True
+Env: colorize  Image: 208/312  Pred: colorize  Correct: True
+Env: colorize  Image: 209/312  Pred: colorize  Correct: True
+Env: colorize  Image: 210/312  Pred: colorize  Correct: True
+Env: colorize  Image: 211/312  Pred: colorize  Correct: True
+Env: colorize  Image: 212/312  Pred: colorize  Correct: True
+Env: colorize  Image: 213/312  Pred: colorize  Correct: True
+Env: colorize  Image: 214/312  Pred: colorize  Correct: True
+Env: colorize  Image: 215/312  Pred: colorize  Correct: True
+Env: colorize  Image: 216/312  Pred: colorize  Correct: True
+Env: colorize  Image: 217/312  Pred: colorize  Correct: True
+Env: colorize  Image: 218/312  Pred: colorize  Correct: True
+Env: colorize  Image: 219/312  Pred: colorize  Correct: True
+Env: colorize  Image: 220/312  Pred: colorize  Correct: True
+Env: colorize  Image: 221/312  Pred: colorize  Correct: True
+Env: colorize  Image: 222/312  Pred: colorize  Correct: True
+Env: colorize  Image: 223/312  Pred: colorize  Correct: True
+Env: colorize  Image: 224/312  Pred: colorize  Correct: True
+Env: colorize  Image: 225/312  Pred: colorize  Correct: True
+Env: colorize  Image: 226/312  Pred: colorize  Correct: True
+Env: colorize  Image: 227/312  Pred: colorize  Correct: True
+Env: colorize  Image: 228/312  Pred: colorize  Correct: True
+Env: colorize  Image: 229/312  Pred: colorize  Correct: True
+Env: colorize  Image: 230/312  Pred: colorize  Correct: True
+Env: colorize  Image: 231/312  Pred: colorize  Correct: True
+Env: colorize  Image: 232/312  Pred: colorize  Correct: True
+Env: colorize  Image: 233/312  Pred: colorize  Correct: True
+Env: colorize  Image: 234/312  Pred: colorize  Correct: True
+Env: colorize  Image: 235/312  Pred: colorize  Correct: True
+Env: colorize  Image: 236/312  Pred: colorize  Correct: True
+Env: colorize  Image: 237/312  Pred: colorize  Correct: True
+Env: colorize  Image: 238/312  Pred: colorize  Correct: True
+Env: colorize  Image: 239/312  Pred: colorize  Correct: True
+Env: colorize  Image: 240/312  Pred: colorize  Correct: True
+Env: colorize  Image: 241/312  Pred: colorize  Correct: True
+Env: colorize  Image: 242/312  Pred: colorize  Correct: True
+Env: colorize  Image: 243/312  Pred: colorize  Correct: True
+Env: colorize  Image: 244/312  Pred: colorize  Correct: True
+Env: colorize  Image: 245/312  Pred: colorize  Correct: True
+Env: colorize  Image: 246/312  Pred: colorize  Correct: True
+Env: colorize  Image: 247/312  Pred: colorize  Correct: True
+Env: colorize  Image: 248/312  Pred: colorize  Correct: True
+Env: colorize  Image: 249/312  Pred: colorize  Correct: True
+Env: colorize  Image: 250/312  Pred: colorize  Correct: True
+Env: colorize  Image: 251/312  Pred: colorize  Correct: True
+Env: colorize  Image: 252/312  Pred: colorize  Correct: True
+Env: colorize  Image: 253/312  Pred: colorize  Correct: True
+Env: colorize  Image: 254/312  Pred: colorize  Correct: True
+Env: colorize  Image: 255/312  Pred: colorize  Correct: True
+Env: colorize  Image: 256/312  Pred: colorize  Correct: True
+Env: colorize  Image: 257/312  Pred: colorize  Correct: True
+Env: colorize  Image: 258/312  Pred: colorize  Correct: True
+Env: colorize  Image: 259/312  Pred: colorize  Correct: True
+Env: colorize  Image: 260/312  Pred: colorize  Correct: True
+Env: colorize  Image: 261/312  Pred: colorize  Correct: True
+Env: colorize  Image: 262/312  Pred: colorize  Correct: True
+Env: colorize  Image: 263/312  Pred: colorize  Correct: True
+Env: colorize  Image: 264/312  Pred: colorize  Correct: True
+Env: colorize  Image: 265/312  Pred: colorize  Correct: True
+Env: colorize  Image: 266/312  Pred: colorize  Correct: True
+Env: colorize  Image: 267/312  Pred: colorize  Correct: True
+Env: colorize  Image: 268/312  Pred: colorize  Correct: True
+Env: colorize  Image: 269/312  Pred: colorize  Correct: True
+Env: colorize  Image: 270/312  Pred: colorize  Correct: True
+Env: colorize  Image: 271/312  Pred: colorize  Correct: True
+Env: colorize  Image: 272/312  Pred: colorize  Correct: True
+Env: colorize  Image: 273/312  Pred: colorize  Correct: True
+Env: colorize  Image: 274/312  Pred: colorize  Correct: True
+Env: colorize  Image: 275/312  Pred: colorize  Correct: True
+Env: colorize  Image: 276/312  Pred: colorize  Correct: True
+Env: colorize  Image: 277/312  Pred: colorize  Correct: True
+Env: colorize  Image: 278/312  Pred: colorize  Correct: True
+Env: colorize  Image: 279/312  Pred: colorize  Correct: True
+Env: colorize  Image: 280/312  Pred: colorize  Correct: True
+Env: colorize  Image: 281/312  Pred: colorize  Correct: True
+Env: colorize  Image: 282/312  Pred: colorize  Correct: True
+Env: colorize  Image: 283/312  Pred: colorize  Correct: True
+Env: colorize  Image: 284/312  Pred: colorize  Correct: True
+Env: colorize  Image: 285/312  Pred: colorize  Correct: True
+Env: colorize  Image: 286/312  Pred: colorize  Correct: True
+Env: colorize  Image: 287/312  Pred: colorize  Correct: True
+Env: colorize  Image: 288/312  Pred: colorize  Correct: True
+Env: colorize  Image: 289/312  Pred: colorize  Correct: True
+Env: colorize  Image: 290/312  Pred: colorize  Correct: True
+Env: colorize  Image: 291/312  Pred: colorize  Correct: True
+Env: colorize  Image: 292/312  Pred: colorize  Correct: True
+Env: colorize  Image: 293/312  Pred: colorize  Correct: True
+Env: colorize  Image: 294/312  Pred: colorize  Correct: True
+Env: colorize  Image: 295/312  Pred: colorize  Correct: True
+Env: colorize  Image: 296/312  Pred: colorize  Correct: True
+Env: colorize  Image: 297/312  Pred: colorize  Correct: True
+Env: colorize  Image: 298/312  Pred: colorize  Correct: True
+Env: colorize  Image: 299/312  Pred: colorize  Correct: True
+Env: colorize  Image: 300/312  Pred: colorize  Correct: True
+Env: colorize  Image: 301/312  Pred: colorize  Correct: True
+Env: colorize  Image: 302/312  Pred: colorize  Correct: True
+Env: colorize  Image: 303/312  Pred: colorize  Correct: True
+Env: colorize  Image: 304/312  Pred: colorize  Correct: True
+Env: colorize  Image: 305/312  Pred: colorize  Correct: True
+Env: colorize  Image: 306/312  Pred: colorize  Correct: True
+Env: colorize  Image: 307/312  Pred: colorize  Correct: True
+Env: colorize  Image: 308/312  Pred: colorize  Correct: True
+Env: colorize  Image: 309/312  Pred: colorize  Correct: True
+Env: colorize  Image: 310/312  Pred: colorize  Correct: True
+Env: colorize  Image: 311/312  Pred: colorize  Correct: True
+Testing finished on task colorize.
+Testing started on task inpaint.
+Env: inpaint  Image: 0/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 1/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 2/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 3/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 4/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 5/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 6/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 7/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 8/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 9/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 10/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 11/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 12/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 13/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 14/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 15/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 16/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 17/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 18/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 19/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 20/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 21/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 22/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 23/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 24/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 25/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 26/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 27/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 28/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 29/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 30/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 31/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 32/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 33/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 34/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 35/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 36/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 37/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 38/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 39/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 40/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 41/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 42/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 43/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 44/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 45/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 46/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 47/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 48/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 49/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 50/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 51/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 52/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 53/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 54/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 55/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 56/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 57/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 58/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 59/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 60/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 61/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 62/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 63/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 64/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 65/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 66/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 67/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 68/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 69/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 70/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 71/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 72/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 73/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 74/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 75/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 76/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 77/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 78/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 79/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 80/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 81/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 82/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 83/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 84/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 85/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 86/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 87/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 88/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 89/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 90/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 91/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 92/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 93/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 94/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 95/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 96/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 97/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 98/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 99/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 100/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 101/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 102/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 103/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 104/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 105/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 106/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 107/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 108/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 109/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 110/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 111/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 112/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 113/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 114/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 115/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 116/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 117/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 118/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 119/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 120/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 121/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 122/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 123/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 124/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 125/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 126/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 127/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 128/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 129/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 130/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 131/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 132/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 133/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 134/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 135/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 136/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 137/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 138/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 139/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 140/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 141/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 142/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 143/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 144/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 145/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 146/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 147/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 148/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 149/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 150/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 151/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 152/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 153/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 154/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 155/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 156/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 157/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 158/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 159/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 160/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 161/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 162/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 163/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 164/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 165/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 166/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 167/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 168/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 169/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 170/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 171/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 172/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 173/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 174/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 175/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 176/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 177/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 178/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 179/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 180/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 181/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 182/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 183/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 184/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 185/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 186/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 187/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 188/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 189/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 190/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 191/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 192/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 193/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 194/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 195/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 196/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 197/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 198/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 199/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 200/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 201/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 202/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 203/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 204/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 205/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 206/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 207/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 208/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 209/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 210/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 211/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 212/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 213/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 214/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 215/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 216/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 217/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 218/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 219/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 220/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 221/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 222/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 223/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 224/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 225/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 226/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 227/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 228/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 229/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 230/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 231/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 232/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 233/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 234/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 235/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 236/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 237/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 238/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 239/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 240/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 241/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 242/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 243/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 244/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 245/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 246/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 247/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 248/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 249/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 250/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 251/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 252/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 253/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 254/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 255/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 256/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 257/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 258/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 259/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 260/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 261/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 262/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 263/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 264/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 265/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 266/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 267/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 268/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 269/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 270/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 271/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 272/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 273/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 274/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 275/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 276/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 277/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 278/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 279/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 280/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 281/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 282/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 283/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 284/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 285/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 286/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 287/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 288/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 289/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 290/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 291/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 292/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 293/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 294/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 295/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 296/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 297/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 298/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 299/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 300/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 301/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 302/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 303/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 304/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 305/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 306/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 307/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 308/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 309/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 310/312  Pred: inpaint  Correct: True
+Env: inpaint  Image: 311/312  Pred: inpaint  Correct: True
+Testing finished on task inpaint.
+Testing batch size: 16.
+
+
+
+Confusion matrix.
+          Predicted:
+         reconstruction   denoise   colorize   inpaint   
+         ------------------------------------------------
+Task 0:  | 311.000      0.000      0.000      1.000   |
+Task 1:  |   0.000    312.000      0.000      0.000   |
+Task 2:  |   0.000      0.000    312.000      0.000   |
+Task 3:  |   0.000      0.000      0.000    312.000   |
+         ------------------------------------------------
+
+
+
+Confusion matrix with normalize.
+          Predicted:
+         reconstruction   denoise   colorize   inpaint   
+         ------------------------------------------------
+Task 0:  | 311.000      0.000      0.000      1.000   |
+Task 1:  |   0.000    312.000      0.000      0.000   |
+Task 2:  |   0.000      0.000    312.000      0.000   |
+Task 3:  |   0.000      0.000      0.000    312.000   |
+         ------------------------------------------------
+Done.

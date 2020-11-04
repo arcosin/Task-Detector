@@ -25,9 +25,9 @@ from torch.utils import data
 from torch.utils.data import DataLoader
 
 # Custom imports.
-from Doric import ProgNet
-from task_detector import TaskDetector
-from autoencoder import AutoEncoder
+from .Doric import ProgNet
+from .task_detector import TaskDetector
+from .autoencoder import AutoEncoder
 
 # Constants.
 TASKS = ["reconstruction", "denoise", "colorize", "inpaint"]

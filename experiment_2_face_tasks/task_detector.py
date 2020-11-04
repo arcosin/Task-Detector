@@ -4,7 +4,7 @@ import json
 import statistics
 import time
 from collections import defaultdict, deque
-from autoencoder import AutoEncoder
+from .autoencoder import AutoEncoder
 
 class AnomalyDetectorGenerator:
     def __init__(self, device):
