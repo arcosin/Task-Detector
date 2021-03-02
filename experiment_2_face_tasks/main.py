@@ -28,6 +28,9 @@ from torch.utils.data import DataLoader
 from .Doric import ProgNet
 from .task_detector import TaskDetector
 from .autoencoder import AutoEncoder
+from .vae import VAE
+from .vae import Encoder as VAEEncoder
+from .vae import Decoder as VAEDecoder
 
 # Constants.
 TASKS = ["reconstruction", "denoise", "colorize", "inpaint"]
@@ -36,8 +39,6 @@ BATCH_SIZE = 24
 TEST_BATCH_SIZE = 8
 TEST_N = BATCH_SIZE * 2
 EPOCHS = {"reconstruction": 20, "denoise": 20, "colorize": 20, "inpaint": 20}
-LR = 0.001
-KL_WEIGHT = 0.00003
 Z_DIM = 64
 NN_SIZE = (64, 64)
 H_DIM = 300
@@ -59,6 +60,8 @@ TRAIN_PRINT_AT = 14
 VALID_PRINT_AT = 1
 TEST_PRINT_AT = 1
 
+AE_MODE = "vae"                    # Options: "ae", "vae".
+
 DEVICE = torch.device("cpu" if USE_CPU or not torch.cuda.is_available() else "cuda:0")
 
 
@@ -68,8 +71,19 @@ class DetGen:
         super().__init__()
 
     def generateDetector(self):
-        return AutoEncoder(NN_SIZE, H_DIM, Z_DIM).to(DEVICE)
+        if AE_MODE == "vae":
+            vae = buildVAE()
+            return vae.to(DEVICE)
+        else:
+            return AutoEncoder(NN_SIZE, H_DIM, Z_DIM).to(DEVICE)
 
+
+
+def buildVAE():
+    enc = VAEEncoder(NN_SIZE, Z_DIM, Z_DIM, h = H_DIM)
+    dec = VAEDecoder(Z_DIM, NN_SIZE, h = H_DIM)
+    model = VAE(enc, dec)
+    return model
 
 
 
@@ -123,7 +137,7 @@ def getDataAndPreprocess():
 
 
 
-def buildDetector(saveDir):
+def buildTaskDetector(saveDir):
     gen = DetGen()
     taskDetector = TaskDetector(gen, saveDir)
     return taskDetector
@@ -165,12 +179,16 @@ def test(detector, task, testDS, cm = None, cmn = None):
 
 
 
+def configCLIParser(parser):
+    #parser.add_argument("--cpu", help="Specify whether the CPU should be used.", type=bool, nargs='?', const=True, default=False)
+    parser.add_argument("--save_dir", help="Specify where to save models.", type=str, default=SAVE_DIR)
+    return parser
 
 
 
-def main():
+def main(args):
     dataTrain, dataValid, dataTest = getDataAndPreprocess()
-    detector = buildDetector(SAVE_DIR)
+    detector = buildTaskDetector(args.save_dir)
     cm = defaultdict(lambda: 0.0)
     cmn = defaultdict(lambda: 0.0)
     for task in TASKS:
@@ -194,6 +212,9 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    parser = argparse.ArgumentParser(prog = "task_detector_face_experiment", description = "")
+    parser = configCLIParser(parser)
+    args = parser.parse_args()
+    main(args)
 
 #===============================================================================

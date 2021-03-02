@@ -5,7 +5,11 @@ from collections import defaultdict
 from .multienv import MultiEnv
 from .random_agent import RandomAgent
 from .task_detector import TaskDetector
-from .task_detector import AnomalyDetectorGenerator
+#from .task_detector import AnomalyDetectorGenerator
+from .autoencoder import AutoEncoder
+from .vae import VAE
+from .vae import Encoder as VAEEncoder
+from .vae import Decoder as VAEDecoder
 
 import torch
 import torchvision.transforms as transforms
@@ -19,7 +23,8 @@ DISTRO_TRAIN_EPS = 5
 TEST_EPS = 10
 NN_SIZE = (77, 100)
 H_DIM = 300
-LATENT_SIZE = 128
+Z_DIM = 128
+AE_MODE = "vae"                    # Options: "ae", "vae".
 
 MULTI_GPU_TESTING = False
 MULTI_GPU_LIST = ["cuda:0", "cuda:1", "cuda:2", "cuda:3", "cuda:4", "cuda:5"]
@@ -29,6 +34,30 @@ DEVICE = torch.device("cuda:0" if GPU_TRAINING_ON and torch.cuda.is_available() 
 
 SAMPLES_DIR = 'samples'
 MODELS_DIR = 'models'
+
+
+
+
+class DetGen:
+    def __init__(self):
+        super().__init__()
+
+    def generateDetector(self):
+        if AE_MODE == "vae":
+            vae = buildVAE()
+            return vae.to(DEVICE)
+        else:
+            return AutoEncoder(NN_SIZE, H_DIM, Z_DIM).to(DEVICE)
+
+
+
+def buildVAE():
+    enc = VAEEncoder(NN_SIZE, Z_DIM, Z_DIM, h = H_DIM)
+    dec = VAEDecoder(Z_DIM, NN_SIZE, h = H_DIM)
+    model = VAE(enc, dec)
+    return model
+
+
 
 def preprocess(inputDict):
     transform = transforms.Compose([
@@ -112,7 +141,6 @@ def train(agent, detector, env, envNumber, episodes, distroEpisodes, render = Fa
             i = i + 1
         img_path = "%s/env_" % SAMPLES_DIR + str(envNumber) + "_e_" + str(e) +"_img" + ".png"
         save_image(torch.rot90(out, 3, [2,3]),img_path)
-
     for e in range(distroEpisodes):
         state = env.reset()
         state = convertTorch(state)
@@ -165,26 +193,33 @@ def printCM(taskList, cm):
 
 
 
-def main():
+def configCLIParser(parser):
+    #parser.add_argument("--cpu", help="Specify whether the CPU should be used.", type=bool, nargs='?', const=True, default=False)
+    return parser
+
+
+
+def main(args):
     print("Starting.")
     envNameList = ["breakout", "pong", "space_invaders", "ms_pacman", "assault", "asteroids", "boxing", "phoenix", "alien"]
     atariGames = MultiEnv(envNameList)
     agent = RandomAgent(atariGames.actSpace)
-    gen = AnomalyDetectorGenerator(DEVICE, NN_SIZE, H_DIM, LATENT_SIZE)
-    detector = TaskDetector(gen, "./%s/" % MODELS_DIR)
+    #gen = AnomalyDetectorGenerator(DEVICE, NN_SIZE, H_DIM, Z_DIM)
+    gen = DetGen()
+    taskDetector = TaskDetector(gen, "./%s/" % MODELS_DIR)
     if TRAINING_ON:
         for i, env in enumerate(atariGames.getEnvList()):
-            detector.addTask(i)
-            train(agent, detector, env, i, TRAIN_EPS, DISTRO_TRAIN_EPS)
-            detector.expelDetector(i)
+            taskDetector.addTask(i)
+            train(agent, taskDetector, env, i, TRAIN_EPS, DISTRO_TRAIN_EPS)
+            taskDetector.expelDetector(i)
         print("Training complete.")
     else:
-        detector.loadAll(envNameList)
+        taskDetector.loadAll(envNameList)
         print("Loaded envs %s." % str(envNameList))
     print("Testing with normalize.")
     cm = defaultdict(lambda: 0.0)
     for i, env in enumerate(atariGames.getEnvList()):
-        predicteds = test(agent, detector, env, i, TEST_EPS)
+        predicteds = test(agent, taskDetector, env, i, TEST_EPS)
         for envNum in range(len(envNameList)):
             for predNum in range(len(envNameList)):
                 cm[(predNum, envNum)] += predicteds[(predNum, envNum)]
@@ -193,10 +228,10 @@ def main():
     printCM(envNameList, cm)
     print()
     print("Testing without normalize.")
-    detector.setNormalize(on = False)
+    taskDetector.setNormalize(on = False)
     cm = defaultdict(lambda: 0.0)
     for i, env in enumerate(atariGames.getEnvList()):
-        predicteds = test(agent, detector, env, i, TEST_EPS)
+        predicteds = test(agent, taskDetector, env, i, TEST_EPS)
         for envNum in range(len(envNameList)):
             for predNum in range(len(envNameList)):
                 cm[(predNum, envNum)] += predicteds[(predNum, envNum)]

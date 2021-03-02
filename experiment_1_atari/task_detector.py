@@ -6,8 +6,8 @@ import torch
 import statistics
 from collections import defaultdict, deque
 
-from .auto_encoder import AutoEncoder
-
+from .autoencoder import AutoEncoder
+'''
 class AnomalyDetectorGenerator:
     def __init__(self, device, inShape, h_dim, latent_size):
         super().__init__()
@@ -18,7 +18,7 @@ class AnomalyDetectorGenerator:
 
     def generateDetector(self):
         return AutoEncoder(self.inShape, self.h_dim, self.latent_size).to(self.device)
-
+'''
 
 
 

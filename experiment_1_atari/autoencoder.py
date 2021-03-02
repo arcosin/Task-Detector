@@ -57,16 +57,16 @@ class AutoEncoder(nn.Module):
 
         mask = y_2-y
 
-        mask[mask!=0] = 1
+        mask[mask != 0] = 1
 
         y_hat_masked = mask * y_hat
         y_2_masked = mask * y_2
         y_masked = mask * y
-        
+
         k_loss = nn.MSELoss()(y_masked, y_hat_masked)
 
         return mse + KAMSE_WEIGHT * k_loss
-        
+
 
     def encoder(self, x):
         x = self.e_layer1(x)
