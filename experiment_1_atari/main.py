@@ -1,7 +1,9 @@
 
 
-
+import random
+import math
 from collections import defaultdict
+
 from .multienv import MultiEnv
 from .random_agent import RandomAgent
 from .task_detector import TaskDetector
@@ -16,21 +18,22 @@ import torchvision.transforms as transforms
 from torchvision.utils import save_image
 from PIL import Image as Image
 
-TRAINING_ON = True
 GPU_TRAINING_ON = True
-TRAIN_EPS = 100
-DISTRO_TRAIN_EPS = 5
-TEST_EPS = 10
+TRAIN_RECS = 1#000
+TRAIN_EPOCHS = 1
+TEST_RECS = 100
+
 NN_SIZE = (77, 100)
 H_DIM = 300
 Z_DIM = 128
-AE_MODE = "vae"                    # Options: "ae", "vae".
 
-MULTI_GPU_TESTING = False
-MULTI_GPU_LIST = ["cuda:0", "cuda:1", "cuda:2", "cuda:3", "cuda:4", "cuda:5"]
-DETECTORS_PER_CARD = 2
+#MULTI_GPU_TESTING = False
+#MULTI_GPU_LIST = ["cuda:0", "cuda:1", "cuda:2", "cuda:3", "cuda:4", "cuda:5"]
+#DETECTORS_PER_CARD = 2
 
-DEVICE = torch.device("cuda:0" if GPU_TRAINING_ON and torch.cuda.is_available() else "cpu")
+DEF_ENVS = ["breakout", "pong", "space_invaders", "ms_pacman", "assault", "asteroids", "boxing", "phoenix", "alien"]
+
+device = None
 
 SAMPLES_DIR = 'samples'
 MODELS_DIR = 'models'
@@ -39,15 +42,16 @@ MODELS_DIR = 'models'
 
 
 class DetGen:
-    def __init__(self):
+    def __init__(self, aeMode):
         super().__init__()
+        self.aeMode = aeMode
 
     def generateDetector(self):
-        if AE_MODE == "vae":
+        if self.aeMode == "vae":
             vae = buildVAE()
-            return vae.to(DEVICE)
+            return vae.to(device)
         else:
-            return AutoEncoder(NN_SIZE, H_DIM, Z_DIM).to(DEVICE)
+            return AutoEncoder(NN_SIZE, H_DIM, Z_DIM).to(device)
 
 
 
@@ -69,18 +73,21 @@ def preprocess(inputDict):
     x = inputDict['S0'].T
     x = transform(x)
     x = torch.unsqueeze(x, dim=0)
-    x = x.to(DEVICE)
-
+    x = x.to(device)
     n_x = inputDict['S1'].T
     n_x = transform(n_x)
     n_x = torch.unsqueeze(n_x, dim=0)
-    n_x = n_x.to(DEVICE).detach()
-
+    n_x = n_x.to(device).detach()
     return x, n_x
+
+
 
 def convertTorch(state):
     return torch.from_numpy(state)
 
+
+
+'''
 def enableMultiGPUTesting(detector):
     cacheSize = DETECTORS_PER_CARD * len(MULTI_GPU_LIST)
     detector.resetCache(cacheSize)
@@ -88,41 +95,70 @@ def enableMultiGPUTesting(detector):
     card = 0
     for name in list(detector.cache):
         dev = torch.device(MULTI_GPU_LIST[card])
-        detector.resetDetectorDevice(dev)
+        detector.resetDetectordevice(dev)
         perCardCount += 1
         if perCardCount >= DETECTORS_PER_CARD:
             card += 1
             perCardCount = 0
+'''
 
-def test(agent, detector, env, envNumber, episodes, render = False):
+
+
+def test(agent, detector, env, envID, ds):
     predicteds = defaultdict(lambda: 0.0)
-    if MULTI_GPU_TESTING:
-         enableMultiGPUTesting(detector)
+    predictedsNorm = defaultdict(lambda: 0.0)
     with torch.no_grad():
-        for e in range(episodes):
-            state = env.reset()
-            state = convertTorch(state)
-            terminal = False
-            i=0
-            while not terminal:
-                if render:   env.render()
-                action = agent.act(state)
-                nextState, reward, terminal, info = env.step(action)
-                nextState = convertTorch(nextState)
-                detectorInput = {"S0": state, "S1": nextState, "A": action}
-                x, n_x = preprocess(detectorInput)
-                envPred = detector.detect(x)
-                predicteds[(envPred, envNumber)] += 1
-                print("Env: {} Episode: {}/{} StateNo: {}".format(envNumber, e, episodes, i))
-                state = nextState
-                i=i+1
-    return predicteds
+        for inpNum, inp in enumerate(ds):
+            x, n_x = preprocess(inp)
+            envPred, envPredNorm = detector.detect(x)
+            predicteds[(envPred, envID)] += 1
+            predictedsNorm[(envPredNorm, envID)] += 1
+            print("Env: {}   Record: {}/{}   Corr: {}={}-->{}   NCorr: {}={}-->{}".format(envID, inpNum, len(ds), envPred, envID, (envPred == envID), envPredNorm, envID, (envPredNorm == envID)))
+    return predicteds, predictedsNorm
 
 
 
 
 
+def genDataFromEnv(agent, env, datasetSize, render = False):
+    ds = []
+    while True:
+        state = convertTorch(env.reset())
+        terminal = False
+        i = 0
+        while not terminal:
+            if render:   env.render()
+            action = agent.act(state)
+            nextState, reward, terminal, info = env.step(action)
+            nextState = convertTorch(nextState)
+            detectorInput = {"S0": state, "S1": nextState, "A": action}
+            ds.append(detectorInput)
+            state = nextState
+            i = i + 1
+        if len(ds) >= datasetSize:
+            ds = random.sample(ds, datasetSize)
+            return ds
 
+
+
+
+
+def train(agent, detector, env, envID, ds, epochs, sampleDir):
+    for epoch in range(epochs):
+        for inpNum, inp in enumerate(ds):
+            out, loss = trainDetector(detector, inp, envID)
+            print("Env: {}   Epoch: {}/{}   Record: {}/{}   Loss: {}".format(envID, epoch, epochs, inpNum, len(ds), loss))
+        if sampleDir[-1] == '/':
+            img_path = "{}env_{}_e_{}.png".format(sampleDir, envID, epoch)
+        else:
+            img_path = "{}/env_{}_e_{}.png".format(sampleDir, envID, epoch)
+        save_image(torch.rot90(out, 3, [2, 3]), img_path)
+    for inpNum, inp in enumerate(ds):
+        trainDetectorDistro(detector, inp, envID)
+
+
+
+'''
 def train(agent, detector, env, envNumber, episodes, distroEpisodes, render = False):
     for e in range(episodes):
         state = env.reset()
@@ -153,18 +189,25 @@ def train(agent, detector, env, envNumber, episodes, distroEpisodes, render = Fa
             detectorInput = {"S0": state, "S1": nextState, "A": action}
             trainDetectorDistro(detector, detectorInput, envNumber)
             state = nextState
-
+'''
 
 
 def trainDetectorDistro(detector, inputDict, envLabel):
-    x, n_x = preprocess(inputDict)
-    detector.trainDistro(x, envLabel)
+    with torch.no_grad():
+        x, n_x = preprocess(inputDict)
+        detector.trainDistro(x, envLabel)
 
 
 
 def trainDetector(detector, inputDict, envLabel):
     x, n_x = preprocess(inputDict)
     return detector.trainStep(x, n_x, envLabel)
+
+
+def populateCM(taskList, cm, predicteds):
+    for envNum in range(len(taskList)):
+        for predNum in range(len(taskList)):
+            cm[(predNum, envNum)] += predicteds[(predNum, envNum)]
 
 
 
@@ -194,52 +237,64 @@ def printCM(taskList, cm):
 
 
 def configCLIParser(parser):
-    #parser.add_argument("--cpu", help="Specify whether the CPU should be used.", type=bool, nargs='?', const=True, default=False)
+    parser.add_argument("--train_size", help="Number of records to generate for training.", type=int, default=TRAIN_RECS)
+    parser.add_argument("--train_epochs", help="Training epochs.", type=int, default=TRAIN_EPOCHS)
+    parser.add_argument("--test_size", help="Number of records to generate for testing.", type=int, default=TEST_RECS)
+    parser.add_argument("--train_mode", help="If 2, train on one enviroment specified by train_env. If 1, trains all detectors. If 0, attempts to load detectors.", choices=[0, 1, 2], type=int, default=1)
+    parser.add_argument("--train_env", help="Env to use if train_mode is set to 2.", choices=DEF_ENVS, default=DEF_ENVS[0])
+    parser.add_argument("--test_mode", help="If 1, tests the detectors. If 0, skips testing.", type=int, choices=[0, 1], default=1)
+    parser.add_argument("--ae_type", help="Type of AE to use.", choices=["vae", "ae"], default="vae")
+    parser.add_argument("--device", help="Device to run torch on. Usually 'cpu' or 'cuda:[N]'. Defaults to cpu if cuda is not available.", type=str, default="cpu")
+    parser.add_argument("--models_dir", help="Directory to store model save / load files.", type=str, default = "./%s/" % MODELS_DIR)
+    parser.add_argument("--samples_dir", help="Directory to store training reconst samples.", type=str, default = "./%s/" % SAMPLES_DIR)
     return parser
 
 
 
 def main(args):
+    global device
     print("Starting.")
-    envNameList = ["breakout", "pong", "space_invaders", "ms_pacman", "assault", "asteroids", "boxing", "phoenix", "alien"]
+    if torch.cuda.is_available():
+        print("Cuda is available.")
+        print("Using device: %s." % args.device)
+        device = torch.device(args.device)
+    else:
+        print("Cuda is not available.")
+        print("Using device: cpu.")
+        device = torch.device("cpu")
+    if args.train_mode == 2:
+        envNameList = [args.train_env]
+    else:
+        envNameList = DEF_ENVS
     atariGames = MultiEnv(envNameList)
     agent = RandomAgent(atariGames.actSpace)
-    #gen = AnomalyDetectorGenerator(DEVICE, NN_SIZE, H_DIM, Z_DIM)
-    gen = DetGen()
-    taskDetector = TaskDetector(gen, "./%s/" % MODELS_DIR)
-    if TRAINING_ON:
+    gen = DetGen(args.ae_type)
+    taskDetector = TaskDetector(gen, args.models_dir)
+    if args.train_mode > 0:
         for i, env in enumerate(atariGames.getEnvList()):
-            taskDetector.addTask(i)
-            train(agent, taskDetector, env, i, TRAIN_EPS, DISTRO_TRAIN_EPS)
-            taskDetector.expelDetector(i)
-        print("Training complete.")
+            ds = genDataFromEnv(agent, env, args.train_size)
+            taskDetector.addTask(env.game)
+            train(agent, taskDetector, env, env.game, ds, args.train_epochs, args.samples_dir)
+            taskDetector.expelDetector(env.game)
+        print("Training complete.\n\n")
     else:
         taskDetector.loadAll(envNameList)
         print("Loaded envs %s." % str(envNameList))
-    print("Testing with normalize.")
-    cm = defaultdict(lambda: 0.0)
-    for i, env in enumerate(atariGames.getEnvList()):
-        predicteds = test(agent, taskDetector, env, i, TEST_EPS)
-        for envNum in range(len(envNameList)):
-            for predNum in range(len(envNameList)):
-                cm[(predNum, envNum)] += predicteds[(predNum, envNum)]
-    print("Testing complete.")
-    print()
-    printCM(envNameList, cm)
-    print()
-    print("Testing without normalize.")
-    taskDetector.setNormalize(on = False)
-    cm = defaultdict(lambda: 0.0)
-    for i, env in enumerate(atariGames.getEnvList()):
-        predicteds = test(agent, taskDetector, env, i, TEST_EPS)
-        for envNum in range(len(envNameList)):
-            for predNum in range(len(envNameList)):
-                cm[(predNum, envNum)] += predicteds[(predNum, envNum)]
-    print("Testing complete.")
-    print()
-    printCM(envNameList, cm)
-    print()
-    print("Done.")
+    if args.test_mode == 1:
+        print("Testing with and without normalization.")
+        cm = defaultdict(lambda: 0.0)
+        cmn = defaultdict(lambda: 0.0)
+        for i, env in enumerate(atariGames.getEnvList()):
+            ds = genDataFromEnv(agent, env, args.test_size)
+            predicteds, predictedsNorm = test(agent, taskDetector, env, env.game, ds)
+            populateCM(envNameList, cm, predicteds)
+            populateCM(envNameList, cmn, predictedsNorm)
+        print("Testing complete.\n")
+        print("Not normalized:\n\n")
+        printCM(envNameList, cm)
+        print("\n\nNormalized:\n\n")
+        printCM(envNameList, cmn)
+    print("\n\nDone.")
 
 
 

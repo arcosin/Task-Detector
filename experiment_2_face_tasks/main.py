@@ -153,7 +153,10 @@ def train(detector, task, trainDS):
         for i, (x, _) in enumerate(trainDS):
             x = transformInput(x, task).to(DEVICE)
             _, loss = detector.trainStep(x, task)
-            avgLoss += loss
+            if isinstance(loss, dict):
+                avgLoss += loss["loss"]
+            else:
+                avgLoss += loss
             if i % TRAIN_PRINT_AT == 0:
                 print("=", end = '', flush = True)
         print("]")

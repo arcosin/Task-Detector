@@ -119,7 +119,7 @@ class VAE(nn.Module):
 
     def train_step(self, x):
         o, mu, sig, lv = self.forward(x)
-        loss, _, _ = self.loss(x, o, mu, sig)
+        loss, rl, dl = self.loss(x, o, mu, sig)
         self.optimizer.zero_grad()
         loss.backward()
         self.optimizer.step()

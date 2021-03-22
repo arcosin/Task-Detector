@@ -23,9 +23,8 @@ class AnomalyDetectorGenerator:
 
 
 class TaskDetector:
-    def __init__(self, anomalyDetectorGen, savePath, normalize = True, distroMemSize = 100, detectorCache = -1):
+    def __init__(self, anomalyDetectorGen, savePath, distroMemSize = 100, detectorCache = -1):
         super().__init__()
-        self.normalize = normalize
         self.gen = anomalyDetectorGen
         self.taskMap = dict()
         self.savePath = savePath
@@ -38,6 +37,8 @@ class TaskDetector:
     def detect(self, state):
         bestScore = float("-inf")
         task = None
+        bestScoreWithNorm = float("-inf")
+        taskWithNorm = None
         self._checkDetectorCache()
         with torch.no_grad():
             for name in self.taskMap.keys():
@@ -45,14 +46,16 @@ class TaskDetector:
                 model = self.getDetectorModel(name)
                 model.eval()
                 score = model.detect(state).item()
-                if self.normalize:
-                    score = (score - distro[0]) / distro[1]   # Normalize.
+                normScore = (score - distro[0]) / distro[1]   # Normalize.
                 if bestScore < score:
                     task = name
                     bestScore = score
+                if bestScoreWithNorm < normScore:
+                    taskWithNorm = name
+                    bestScoreWithNorm = normScore
                 if self.cacheOn and name not in self.cache:
                     self.expelDetector(name)
-        return task
+        return (task, taskWithNorm)
 
     def addTask(self, name, init = True):
         if init:
@@ -127,9 +130,6 @@ class TaskDetector:
         score = model.detect(x).item()
         distro[2].append(score)
         distro[3] = True
-
-    def setNormalize(self, on = True):
-        self.normalize = on
 
     def resetCache(self, detectorCache = None):
         self.cache = set()

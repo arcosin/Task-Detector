@@ -7,11 +7,38 @@ import torch.nn as nn
 KAMSE_WEIGHT = 10
 
 
+def checkBad(label, vars, names):
+    for name, var in zip(names, vars):
+        if torch.isnan(var).any() or torch.isinf(var).any():
+            print("\n\n", label, "\n\n")
+            print(name)
+            print("Max", torch.max(var))
+            print("Min", torch.min(var))
+            print("Avg", torch.mean(var))
+            print("Nans", torch.isnan(var).any())
+            print("Infs", torch.isinf(var).any())
+            print()
+            for n, v in zip(names, vars):
+                if name != n:
+                    print(n)
+                    print("Max", torch.max(v))
+                    print("Min", torch.min(v))
+                    print("Avg", torch.mean(v))
+                    print("Nans", torch.isnan(v).any())
+                    print("Infs", torch.isinf(v).any())
+                    print()
+            print("\n\n")
+            assert False, "Temporary stop."
+
+
+
 
 def kld(mu1, std1, mu2, std2):
     p = torch.distributions.Normal(mu1, std1)
     q = torch.distributions.Normal(mu2, std2)
-    return torch.distributions.kl_divergence(p, q).mean()
+    kl = torch.distributions.kl_divergence(p, q).mean()
+    checkBad("kld-end", [mu1, mu2, kl], ["mu1", "mu2", "kl"])
+    return kl
 
 
 
@@ -38,12 +65,13 @@ class Encoder(nn.Module):
         self.fcSig = nn.Linear(h, sigSize)
 
     def forward(self, x):
-        x = self.convBlock1(x)
-        x = self.convBlock2(x)
-        x = x.view(x.size(0), -1)
-        x = self.fc(x)
-        mu = self.fcMu(x)
-        sig = self.fcSig(x)
+        x1 = self.convBlock1(x)
+        x2 = self.convBlock2(x1)
+        x3 = x2.view(x2.size(0), -1)
+        x4 = self.fc(x3)
+        mu = self.fcMu(x4)
+        sig = self.fcSig(x4)
+        checkBad("encoder f", [x1, x2, x3, x4, mu, sig], ["1", "2", "3", "4", "mu", "sig"])
         return (mu, sig)
 
 
@@ -72,12 +100,13 @@ class Decoder(nn.Module):
         nn.Tanh())
 
     def forward(self, x):
-        x = self.fc1(x)
-        x = self.fc2(x)
-        x = x.view(x.size(0), 128, self.imgShape[0], self.imgShape[1])
-        x = self.deconvBlock1(x)
-        x = self.deconvBlock2(x)
-        return x
+        x1 = self.fc1(x)
+        x2 = self.fc2(x1)
+        x3 = x2.view(x2.size(0), 128, self.imgShape[0], self.imgShape[1])
+        x4 = self.deconvBlock1(x3)
+        x5 = self.deconvBlock2(x4)
+        checkBad("decoder f", [x1, x2, x3, x4, x5], ["1", "2", "3", "4", "5"])
+        return x5
 
 
 
@@ -90,7 +119,8 @@ class VAE(nn.Module):
         self.rw = reconstWeight
         self.dw = divergeWeight
         self.criterian = nn.MSELoss()
-        self.optimizer = torch.optim.RMSprop(self.parameters(), lr=1e-5, weight_decay=1e-5)
+        #self.optimizer = torch.optim.RMSprop(self.parameters(), lr=1e-5, weight_decay=1e-5)
+        self.optimizer = torch.optim.Adam(self.parameters(), lr=1e-5, weight_decay=1e-5)
 
     def forward(self, x):
         mu, sig = self.encoder(x)
@@ -109,6 +139,7 @@ class VAE(nn.Module):
         compStd = torch.full(sig.size(), 1.0)
         dl = kld(mu, sig, compMeans, compStd)
         totalLoss = self.rw * rl + self.dw * dl
+        checkBad("loss", [rl, dl, totalLoss], ["reconst", "kl-div", "total"])
         return (totalLoss, rl, dl)
 
     def kamse_loss(self, y, y_2, y_hat):
@@ -122,11 +153,11 @@ class VAE(nn.Module):
         return mse + KAMSE_WEIGHT * k_loss
 
     def reparamaterize(self, mu, sig):
-        std = torch.exp(0.5 * sig)
-        epsMeans = torch.full(std.size(), 0.0)
-        epsStd = torch.full(std.size(), 1.0)
-        eps = torch.normal(epsMeans, epsStd)   #torch.randn_like(std)
-        return eps * std + mu
+        epsMeans = torch.full(sig.size(), 0.0)
+        epsStd = torch.full(sig.size(), 1.0)
+        eps = torch.normal(epsMeans, epsStd)   #torch.randn_like(sig)
+        checkBad("reparam", [sig, mu, eps, eps * sig + mu], ["sig", "mu", "eps", "sample"])
+        return eps * sig + mu
 
     def train_step(self, x, n_x):
         o, mu, sig, lv = self.forward(x)
