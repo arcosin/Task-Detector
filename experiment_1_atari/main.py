@@ -19,7 +19,7 @@ from torchvision.utils import save_image
 from PIL import Image as Image
 
 GPU_TRAINING_ON = True
-TRAIN_RECS = 1#000
+TRAIN_RECS = 1000
 TRAIN_EPOCHS = 1
 TEST_RECS = 100
 
@@ -205,9 +205,9 @@ def trainDetector(detector, inputDict, envLabel):
 
 
 def populateCM(taskList, cm, predicteds):
-    for envNum in range(len(taskList)):
-        for predNum in range(len(taskList)):
-            cm[(predNum, envNum)] += predicteds[(predNum, envNum)]
+    for trueEnv in taskList:
+        for predEnv in taskList:
+            cm[(predEnv, trueEnv)] += predicteds[(predEnv, trueEnv)]
 
 
 
@@ -224,10 +224,10 @@ def printCM(taskList, cm):
     for _ in range(dotsLen):
         print('-', end = '')
     print()
-    for taskNum in range(len(taskList)):
-        print("Task " + str(taskNum) + ":  |", end = '')
-        for predNum in range(len(taskList)):
-            print("{:8.3f}".format(cm[(predNum, taskNum)]), end = ' ')
+    for i, trueEnv in enumerate(taskList):
+        print("Task " + str(i) + ":  |", end = '')
+        for predEnv in taskList:
+            print("{:8.3f}".format(cm[(predEnv, trueEnv)]), end = ' ')
         print("|")
     print("         ", end = '')
     for _ in range(dotsLen):

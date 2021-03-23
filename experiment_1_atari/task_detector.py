@@ -114,7 +114,7 @@ class TaskDetector:
             for name in self.taskMap.keys():
                 self.rebuildDetector(name)
         else:
-            for name in range(len(names)):
+            for name in names:
                 self.rebuildDetector(name)
         self.loadDistros()
 
