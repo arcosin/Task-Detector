@@ -23,16 +23,19 @@ class AnomalyDetectorGenerator:
 
 
 class TaskDetector:
-    def __init__(self, anomalyDetectorGen, savePath, distroMemSize = 100, detectorCache = -1):
+    def __init__(self, anomalyDetectorGen, savePath, detType, distroMemSize = 100, detectorCache = -1, device = "cpu"):
         super().__init__()
         self.gen = anomalyDetectorGen
         self.taskMap = dict()
         self.savePath = savePath
+        self.saving = True
         self.distroMemSize = distroMemSize
         self.distroMap = defaultdict(self._buildDistro)
         self.cache = set()
         self.cacheCap = detectorCache
         self.cacheOn = (self.cacheCap >= 0)
+        self.detType = detType
+        self.dev = device
 
     def detect(self, state):
         bestScore = float("-inf")
@@ -70,21 +73,23 @@ class TaskDetector:
         return model
 
     def expelDetector(self, name):
-        self.saveDetector(name)
+        if self.saving:
+            self.saveDetector(name)
         self.taskMap[name] = str(name)
 
     def rebuildDetector(self, name):
         model = self.gen.generateDetector()
-        filepath = os.path.join(self.savePath, "Det-%s.pt" % name)
-        print("Rebuilding detector %s." % name)
-        model.load_state_dict(torch.load(filepath))
+        filepath = os.path.join(self.savePath, "Det-%s-%s.pt" % (self.detType, name))
+        #print("Rebuilding detector %s." % name)
+        model.load_state_dict(torch.load(filepath, map_location = torch.device(self.dev)))
+        #print("Done loading.")
         self.taskMap[name] = model
         return model
 
     def saveDetector(self, name):
         model = self.taskMap[name]
         if not isinstance(model, str):
-            filepath = os.path.join(self.savePath, "Det-%s.pt" % name)
+            filepath = os.path.join(self.savePath, "Det-%s-%s.pt" % (self.detType, name))
             print("Saving detector %s." % name)
             torch.save(model.state_dict(), filepath)
 
@@ -92,15 +97,16 @@ class TaskDetector:
         for name in self.taskMap.keys():
             self._recalcDistro(name)
         ob = json.dumps(dict(self.distroMap))
-        filepath = os.path.join(self.savePath, "Distros.json")
+        filepath = os.path.join(self.savePath, "Distros-%s.json" % self.detType)
         with open(filepath, "w") as outfile:
             outfile.write(ob)
 
     def loadDistros(self):
-        filepath = os.path.join(self.savePath, "Distros.json")
+        filepath = os.path.join(self.savePath, "Distros-%s.json" % self.detType)
         if os.path.isfile(filepath):
             d = json.loads(filepath)
         else:
+            print("No distro save found.")
             d = dict()
         self.distroMap = defaultdict(self._buildDistro, d)
 
@@ -114,8 +120,11 @@ class TaskDetector:
             for name in self.taskMap.keys():
                 self.rebuildDetector(name)
         else:
-            for name in names:
-                self.rebuildDetector(name)
+            for i, name in enumerate(names):
+                if i < self.cacheCap:
+                    self.rebuildDetector(name)
+                else:
+                    self.taskMap[name] = ""
         self.loadDistros()
 
     def trainStep(self, x, n_x, name):
@@ -145,6 +154,12 @@ class TaskDetector:
         model.to(dev)
         if self.cacheOn and name not in self.cache:
             self.expelDetector(name)
+
+    def toggleSaving(self, on):
+        self.saving = on
+
+    def getNames(self):
+        return list(self.taskMap.keys())
 
     def _checkDetectorCache(self):
         for name in self.taskMap.keys():

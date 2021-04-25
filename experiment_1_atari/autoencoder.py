@@ -6,6 +6,7 @@ KAMSE_WEIGHT = 10
 class AutoEncoder(nn.Module):
     def __init__(self, inShape, h_dim, latent_size):
         super(AutoEncoder, self).__init__()
+        self.zShape = latent_size
 
         self.inShape = inShape
         self.e_layer1 = nn.Sequential(
@@ -101,3 +102,8 @@ class AutoEncoder(nn.Module):
         loss.backward()
         self.optimizer.step()
         return out, loss
+
+    def generate(self):
+        noise = torch.empty(self.zShape).normal_(mean = 0.0, std = 1.0).unsqueeze(0)
+        g = self.decoder(noise)
+        return g

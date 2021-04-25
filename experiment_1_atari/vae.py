@@ -28,17 +28,9 @@ def checkBad(label, vars, names):
                     print("Infs", torch.isinf(v).any())
                     print()
             print("\n\n")
-            assert False, "Temporary stop."
+            raise RuntimeError
 
 
-
-
-def kld(mu1, std1, mu2, std2):
-    p = torch.distributions.Normal(mu1, std1)
-    q = torch.distributions.Normal(mu2, std2)
-    kl = torch.distributions.kl_divergence(p, q).mean()
-    checkBad("kld-end", [mu1, mu2, kl], ["mu1", "mu2", "kl"])
-    return kl
 
 
 
@@ -65,13 +57,12 @@ class Encoder(nn.Module):
         self.fcSig = nn.Linear(h, sigSize)
 
     def forward(self, x):
-        x1 = self.convBlock1(x)
-        x2 = self.convBlock2(x1)
-        x3 = x2.view(x2.size(0), -1)
-        x4 = self.fc(x3)
-        mu = self.fcMu(x4)
-        sig = self.fcSig(x4)
-        checkBad("encoder f", [x1, x2, x3, x4, mu, sig], ["1", "2", "3", "4", "mu", "sig"])
+        x = self.convBlock1(x)
+        x = self.convBlock2(x)
+        x = x.view(x.size(0), -1)
+        x = self.fc(x)
+        mu = self.fcMu(x)
+        sig = self.fcSig(x)
         return (mu, sig)
 
 
@@ -79,6 +70,7 @@ class Encoder(nn.Module):
 class Decoder(nn.Module):
     def __init__(self, inShape, imgShape, h = 300):
         super().__init__()
+        self.zShape = inShape
         self.imgShape = imgShape
         self.fc1 = nn.Linear(inShape, h)
         self.fc2 = nn.Linear(h, imgShape[0] * imgShape[1] * 128)
@@ -100,13 +92,12 @@ class Decoder(nn.Module):
         nn.Tanh())
 
     def forward(self, x):
-        x1 = self.fc1(x)
-        x2 = self.fc2(x1)
-        x3 = x2.view(x2.size(0), 128, self.imgShape[0], self.imgShape[1])
-        x4 = self.deconvBlock1(x3)
-        x5 = self.deconvBlock2(x4)
-        checkBad("decoder f", [x1, x2, x3, x4, x5], ["1", "2", "3", "4", "5"])
-        return x5
+        x = self.fc1(x)
+        x = self.fc2(x)
+        x = x.view(x.size(0), 128, self.imgShape[0], self.imgShape[1])
+        x = self.deconvBlock1(x)
+        x = self.deconvBlock2(x)
+        return x
 
 
 
@@ -119,7 +110,6 @@ class VAE(nn.Module):
         self.rw = reconstWeight
         self.dw = divergeWeight
         self.criterian = nn.MSELoss()
-        #self.optimizer = torch.optim.RMSprop(self.parameters(), lr=1e-5, weight_decay=1e-5)
         self.optimizer = torch.optim.Adam(self.parameters(), lr=1e-5, weight_decay=1e-5)
 
     def forward(self, x):
@@ -137,11 +127,11 @@ class VAE(nn.Module):
         rl = self.reconLoss(reconst, data)
         compMeans = torch.full(sig.size(), 0.0)
         compStd = torch.full(sig.size(), 1.0)
-        dl = kld(mu, sig, compMeans, compStd)
+        dl = self.kld(mu, sig, compMeans, compStd)
         totalLoss = self.rw * rl + self.dw * dl
         checkBad("loss", [rl, dl, totalLoss], ["reconst", "kl-div", "total"])
         return (totalLoss, rl, dl)
-
+        '''
     def kamse_loss(self, y, y_2, y_hat):
         mse = nn.MSELoss()(y, y_hat)
         mask = y_2-y
@@ -151,6 +141,13 @@ class VAE(nn.Module):
         y_masked = mask * y
         k_loss = nn.MSELoss()(y_masked, y_hat_masked)
         return mse + KAMSE_WEIGHT * k_loss
+        '''
+    def kld(self, mu1, std1, mu2, std2):
+        p = torch.distributions.Normal(mu1, std1)
+        q = torch.distributions.Normal(mu2, std2)
+        kl = torch.distributions.kl_divergence(p, q).mean()
+        checkBad("kld-end", [mu1, mu2, kl], ["mu1", "mu2", "kl"])
+        return kl
 
     def reparamaterize(self, mu, sig):
         epsMeans = torch.full(sig.size(), 0.0)
@@ -166,6 +163,12 @@ class VAE(nn.Module):
         loss.backward()
         self.optimizer.step()
         return (o, {"loss": loss.item(), "reconst": rl.item(), "diverge": dl.item()})
+
+    def generate(self):
+        zDim = self.decoder.zShape
+        noise = torch.empty(zDim).normal_(mean = 0.0, std = 1.0).unsqueeze(0)
+        g = self.decoder(noise)
+        return g
 
     def getEncoder(self):
         return self.encoder
