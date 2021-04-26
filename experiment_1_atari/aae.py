@@ -92,7 +92,7 @@ class Decoder(nn.Module):
         nn.LeakyReLU(0.1),
         nn.InstanceNorm2d(16),
         nn.ConvTranspose2d(16, 16, kernel_size=3, stride = 1, padding = 1),
-        nn.LeakyReLU(),
+        nn.LeakyReLU(0.1),
         nn.Conv2d(16, 3, kernel_size=3, stride=1, padding=1),
         nn.Tanh())
 
