@@ -106,7 +106,7 @@ class Decoder(nn.Module):
 
 
 '''
-class Descriminator(nn.Module):   #TODO: change to descrim output.
+class Descriminator(nn.Module):
     def __init__(self, zShape, h1 = 300, h2 = 100):
         super().__init__()
         self.seq = nn.Sequential(
@@ -125,7 +125,7 @@ class Descriminator(nn.Module):   #TODO: change to descrim output.
 '''
 
 
-class Descriminator(nn.Module):   #TODO: change to descrim output.
+class Descriminator(nn.Module):
     def __init__(self, h1 = 300, h2 = 100):
         super().__init__()
         self.seq = nn.Sequential(
